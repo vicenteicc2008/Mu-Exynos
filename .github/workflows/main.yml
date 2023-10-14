@@ -21,7 +21,7 @@ jobs:
           chmod 744 ./setup_env.sh
           ./setup_env.sh -p apt
           chmod 744 ./build_uefi.sh
-          ./build_uefi.sh -d a30 -m 3 -r DEBUG
+          ./build_uefi.sh -d a30 -m 2 -r DEBUG
       - uses: actions/upload-artifact@v3
         with:
           name: Samsung Galaxy A30
