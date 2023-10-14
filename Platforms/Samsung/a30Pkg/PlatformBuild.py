@@ -38,11 +38,11 @@ class CommonPlatform():
     WorkspaceRoot = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
     PackagesPath = (
         "Platforms/Samsung",
-        "MU_BASECORE",
-        "Common/MU",
+        "Mu_Basecore",
+        "Common/Mu",
         "Common/MU_TIANO",
-        "Common/MU_OEM_SAMPLE",
-        "Silicon/Arm/MU_TIANO",
+        "Common/Mu_OEM_Sample",
+        "Silicon/Arm/Mu_Tiano",
         "Features/DFCI",
         "Silicon/Samsung"
     )
@@ -73,7 +73,7 @@ class SettingsManager(UpdateSettingsManager, SetupSettingsManager, PrEvalSetting
             If no RequiredSubmodules return an empty iterable
         """
         return [
-            RequiredSubmodule("MU_BASECORE", True),
+            RequiredSubmodule("Mu_Basecore", True),
             RequiredSubmodule("Common/MU", True),
             RequiredSubmodule("Common/MU_TIANO", True),
             RequiredSubmodule("Common/MU_OEM_SAMPLE", True),
