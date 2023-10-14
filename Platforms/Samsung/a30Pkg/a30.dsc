@@ -23,7 +23,7 @@
   SUPPORTED_ARCHITECTURES        = AARCH64
   BUILD_TARGETS                  = DEBUG|RELEASE
   SKUID_IDENTIFIER               = DEFAULT
-  FLASH_DEFINITION               = a10Pkg/a10.fdf
+  FLASH_DEFINITION               = a30Pkg/a30.fdf
 
 [LibraryClasses.common]
   PlatformMemoryMapLib|a30Pkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
