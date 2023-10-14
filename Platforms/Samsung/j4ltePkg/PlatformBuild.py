@@ -31,10 +31,10 @@ class CommonPlatform():
     ''' Common settings for this platform.  Define static data here and use
         for the different parts of stuart
     '''
-    PackagesSupported = ("a10Pkg",)
+    PackagesSupported = ("j4ltePkg",)
     ArchSupported = ("AARCH64",)
     TargetsSupported = ("DEBUG", "RELEASE")
-    Scopes = ('a10', 'gcc_aarch64_linux', 'edk2-build')
+    Scopes = ('j4lte', 'gcc_aarch64_linux', 'edk2-build')
     WorkspaceRoot = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
     PackagesPath = (
         "Platforms/Samsung",
@@ -130,10 +130,10 @@ class SettingsManager(UpdateSettingsManager, SetupSettingsManager, PrEvalSetting
 
         The tuple should be (<workspace relative path to dsc file>, <input dictionary of dsc key value pairs>)
         '''
-        return ("a10Pkg/a10.dsc", {})
+        return ("j4ltePkg/j4lte.dsc", {})
 
     def GetName(self):
-        return "a10"
+        return "j4lte"
 
     def GetPackagesPath(self):
         ''' Return a list of paths that should be mapped as edk2 PackagesPath '''
@@ -165,7 +165,7 @@ class PlatformBuilder( UefiBuilder, BuildSettingsManager):
             "TARGET_ARCH", args.build_arch.upper(), "From CmdLine")
 
         shell_environment.GetBuildVars().SetValue(
-            "ACTIVE_PLATFORM", "a10Pkg/a10.dsc", "From CmdLine")
+            "ACTIVE_PLATFORM", "j4ltePkg/j4lte.dsc", "From CmdLine")
 
 
     def GetWorkspaceRoot(self):
@@ -188,7 +188,7 @@ class PlatformBuilder( UefiBuilder, BuildSettingsManager):
     def GetName(self):
         ''' Get the name of the repo, platform, or product being build '''
         ''' Used for naming the log file, among others '''
-        return "a10Pkg"
+        return "j4ltePkg"
 
     def GetLoggingLevel(self, loggerType):
         ''' Get the logging level for a given type
@@ -202,8 +202,8 @@ class PlatformBuilder( UefiBuilder, BuildSettingsManager):
 
     def SetPlatformEnv(self):
         logging.debug("PlatformBuilder SetPlatformEnv")
-        self.env.SetValue("PRODUCT_NAME", "a10", "Platform Hardcoded")
-        self.env.SetValue("ACTIVE_PLATFORM", "a10Pkg/a10.dsc", "Platform Hardcoded")
+        self.env.SetValue("PRODUCT_NAME", "j4lte", "Platform Hardcoded")
+        self.env.SetValue("ACTIVE_PLATFORM", "j4ltePkg/j4lte.dsc", "Platform Hardcoded")
         self.env.SetValue("TARGET_ARCH", "AARCH64", "Platform Hardcoded")
         self.env.SetValue("TOOL_CHAIN_TAG", self.env.GetValue("TOOL_CHAIN_TAG"), "Default")
         self.env.SetValue("BUILDREPORTING", "TRUE", "Enabling build report")
