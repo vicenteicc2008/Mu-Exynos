@@ -102,7 +102,7 @@ READ_LOCK_STATUS   = TRUE
   # ACPI and SMBIOS
   INF MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
   INF MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
-  INF Exynos7885Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
+  INF Exynos7570Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
   # ACPI Tables
   !include Include/ACPI.inc
