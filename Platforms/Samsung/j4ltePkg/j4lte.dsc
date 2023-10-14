@@ -62,4 +62,4 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|90
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|80
 
-!include Exynos7885Pkg/Exynos7885Pkg.dsc.inc
+!include Exynos7570Pkg/Exynos7570Pkg.dsc.inc
