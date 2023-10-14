@@ -23,11 +23,11 @@
   gArmTokenSpaceGuid.PcdArmArchTimerVirtIntrNum|11
   gArmTokenSpaceGuid.PcdArmArchTimerHypIntrNum|10
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x104E1000
-  gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x104E4000
-  gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x104E0000
+  gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x104E2000
+  gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x104E1000
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemRevision|0x00007570
-  gEmbeddedTokenSpaceGuid.PcdInterruptBaseAddress|0x104E0000
+  gEmbeddedTokenSpaceGuid.PcdInterruptBaseAddress|0x104E1000
 
   gSamsungPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Exynos (TM) 7570 @ 1.40 GHz"
   gSamsungPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"E7570"
