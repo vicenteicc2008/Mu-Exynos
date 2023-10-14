@@ -40,7 +40,7 @@ class CommonPlatform():
         "Platforms/Samsung",
         "Mu_Basecore",
         "Common/Mu",
-        "Common/MU_TIANO",
+        "Common/Mu_Tiano_Plus",
         "Common/Mu_OEM_Sample",
         "Silicon/Arm/Mu_Tiano",
         "Features/DFCI",
@@ -75,7 +75,7 @@ class SettingsManager(UpdateSettingsManager, SetupSettingsManager, PrEvalSetting
         return [
             RequiredSubmodule("Mu_Basecore", True),
             RequiredSubmodule("Common/Mu", True),
-            RequiredSubmodule("Common/MU_TIANO", True),
+            RequiredSubmodule("Common/Mu_Tiano_Plus", True),
             RequiredSubmodule("Common/Mu_OEM_Sample", True),
             RequiredSubmodule("Silicon/Arm/Mu_Tiano", True),
             RequiredSubmodule("Features/DFCI", True),
