@@ -74,10 +74,10 @@ class SettingsManager(UpdateSettingsManager, SetupSettingsManager, PrEvalSetting
         """
         return [
             RequiredSubmodule("Mu_Basecore", True),
-            RequiredSubmodule("Common/MU", True),
+            RequiredSubmodule("Common/Mu", True),
             RequiredSubmodule("Common/MU_TIANO", True),
-            RequiredSubmodule("Common/MU_OEM_SAMPLE", True),
-            RequiredSubmodule("Silicon/Arm/MU_TIANO", True),
+            RequiredSubmodule("Common/Mu_OEM_Sample", True),
+            RequiredSubmodule("Silicon/Arm/Mu_Tiano", True),
             RequiredSubmodule("Features/DFCI", True),
         ]
 
