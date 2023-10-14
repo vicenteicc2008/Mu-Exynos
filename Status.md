@@ -7,9 +7,88 @@
 |❌|**Not Working**|
 |❔|**Unknown**|
 
+## Galaxy A30
+
+<img align="right" src="https://github.com/vicenteicc2008/Mu-Exynos/blob/main/Pictures/Galaxy-A30.png" width="500" alt="Preview">
+
+**SoC: Exynos 7904** <br />
+**Codename: a30** <br />
+**Maintainer: [vicenteicc2008](https://github.com/vicenteicc2008/)** <br />
+**Contibuters: None** <br />
+**Tester: [vicenteicc2008](https://github.com/vicenteicc2008/)**
+
+### UEFI Status
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Display||✅|
+|Touchscreen|Not Possible right now|❌|
+|Clocks||❌|
+|UFS||❌|
+|Buttons||❌|
+|USB||❌|
+|SD Card||❌|
+|ACPI||❌|
+
+### OS Status
+
+<table>
+<tr><th>Windows</th><th>Linux</th></tr>
+<tr><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||❌|
+|UFS||❌|
+|Buttons||❌|
+|Sensors||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|NFC||❌|
+|Fingerprint||❌|
+|Mobile Data||❌|
+|Display||❌|
+|Vibration||❌|
+
+</td><td>
+
+|Feature|Description|State|
+|:------|:----------|:---:|
+|Boot||❌|
+|UFS||❌|
+|Buttons||❌|
+|Sensors||❌|
+|Battery||❌|
+|USB||❌|
+|Charging||❌|
+|WLAN||❌|
+|CPU||❌|
+|Touchscreen||❌|
+|Bluetooth||❌|
+|GPS||❌|
+|Audio||❌|
+|GPU||❌|
+|Camera||❌|
+|NFC||❌|
+|Fingerprint||❌|
+|Mobile Data||❌|
+|Display||❌|
+|Vibration||❌|
+
+</td></tr> </table>
+
 ## Galaxy S10
 
-<img align="right" src="https://github.com/Robotix22/Mu-Samsung/blob/main/Pictures/Galaxy-S10.png" width="500" alt="Preview">
+<img align="right" src="https://github.com/Robotix22/Mu-Samsung/blob/main/Pictures/Galaxy-A30.png" width="500" alt="Preview">
 
 **SoC: Exynos 9820** <br />
 **Codename: beyond1lte** <br />
