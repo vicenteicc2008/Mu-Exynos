@@ -118,7 +118,7 @@ READ_LOCK_STATUS   = TRUE
   INF DfciPkg/AuthManagerNull/AuthManagerNull.inf
 
   FILE FREEFORM = PCD(gOemPkgTokenSpaceGuid.PcdLogoFile) {
-    SECTION RAW = a10Pkg/Include/Resources/BootLogo.png
+    SECTION RAW = a30Pkg/Include/Resources/BootLogo.png
     SECTION UI = "Logo"
   }
 
