@@ -27,7 +27,7 @@
   gArmTokenSpaceGuid.PcdGicInterruptInterfaceBase|0x104E0000
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdAcpiDefaultOemRevision|0x00007570
-  gEmbeddedTokenSpaceGuid.PcdInterruptBaseAddress|0x12300000
+  gEmbeddedTokenSpaceGuid.PcdInterruptBaseAddress|0x104E0000
 
   gSamsungPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Exynos (TM) 7570 @ 1.40 GHz"
   gSamsungPkgTokenSpaceGuid.PcdSmbiosProcessorRetailModel|"E7570"
