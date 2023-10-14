@@ -15,18 +15,18 @@
 #
 ################################################################################
 [Defines]
-  PLATFORM_NAME                  = a10
+  PLATFORM_NAME                  = a30
   PLATFORM_GUID                  = 93cf4d7c-0441-4a40-891b-4b5f8d4a34ef
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
-  OUTPUT_DIRECTORY               = Build/a10Pkg
+  OUTPUT_DIRECTORY               = Build/a30Pkg
   SUPPORTED_ARCHITECTURES        = AARCH64
   BUILD_TARGETS                  = DEBUG|RELEASE
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = a10Pkg/a10.fdf
 
 [LibraryClasses.common]
-  PlatformMemoryMapLib|a10Pkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
+  PlatformMemoryMapLib|a30Pkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
 
 [PcdsFixedAtBuild.common]
   # Platform-specific
