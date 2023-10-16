@@ -530,6 +530,10 @@
   # Graphics Driver
   SamsungPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 
+  # Keypad
+  SamsungPkg/Drivers/KeypadDxe/KeypadDxe.inf
+  SamsungPkg/Drivers/GenericKeypadDeviceDxe/GenericKeypadDeviceDxe.inf
+
   # Security
   SecurityPkg/VariableAuthenticated/SecureBootConfigDxe/SecureBootConfigDxe.inf
   MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf {

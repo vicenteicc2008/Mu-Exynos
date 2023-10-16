@@ -27,6 +27,7 @@
 
 [LibraryClasses.common]
   PlatformMemoryMapLib|a30Pkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
+  KeypadDeviceImplLib|a30Pkg/Library/KeypadDeviceImplLib/KeypadDeviceImplLib.inf
 
 [PcdsFixedAtBuild.common]
   # Platform-specific
