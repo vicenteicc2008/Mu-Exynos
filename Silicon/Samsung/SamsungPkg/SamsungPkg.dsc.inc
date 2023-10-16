@@ -550,6 +550,9 @@
       NULL|SecurityPkg/Library/OemTpm2InitLibNull/OemTpm2InitLibVendorNull.inf
   }
 
+  # Custom Exynos Drivers
+  SamsungPkg/Drivers/GpaDxe/GpaDxe.inf
+
   SamsungPkg/Drivers/GpioButtons/GpioButtons.inf
   SamsungPkg/Drivers/KernelErrataPatcher/KernelErrataPatcher.inf
   #SamsungPkg/Drivers/SecureBootProvisioningDxe/SecureBootProvisioningDxe.inf
