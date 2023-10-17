@@ -200,6 +200,7 @@
 !endif
 
   PlatformThemeLib|SamsungPkg/Library/PlatformThemeLib/PlatformThemeLib.inf
+  KeypadDeviceImplLib|SamsungPkg/Library/KeypadDeviceImplLib/KeypadDeviceImplLib.inf
 
   #
   # Uncomment (and comment out the next line) For RealView Debugger. The Standard IO window
