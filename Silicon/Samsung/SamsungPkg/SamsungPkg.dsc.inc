@@ -556,7 +556,7 @@
   }
 
   # Custom Exynos Drivers
-  SamsungPkg/Drivers/GpaDxe/GpaDxe.inf
+
 
   SamsungPkg/Drivers/GpioButtons/GpioButtons.inf
   SamsungPkg/Drivers/KernelErrataPatcher/KernelErrataPatcher.inf
