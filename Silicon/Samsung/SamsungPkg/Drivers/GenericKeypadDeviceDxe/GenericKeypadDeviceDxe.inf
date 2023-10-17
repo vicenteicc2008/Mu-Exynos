@@ -18,10 +18,9 @@
 
 [LibraryClasses]
   UefiDriverEntryPoint
-  MemoryAllocationLib
+  UefiBootServicesTableLib
+  DebugLib
   KeypadDeviceImplLib
-  IoLib
-  ArmLib
 
 [Protocols]
   gExynosKeypadDeviceProtocolGuid
@@ -29,4 +28,3 @@
 
 [Depex]
   TRUE
-

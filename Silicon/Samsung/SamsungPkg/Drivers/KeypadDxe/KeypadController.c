@@ -1,22 +1,29 @@
 /** @file
-  Routines that talk to the KeypadDevice protocol
-Copyright (c) 2006 - 2016, Intel Corporation. All rights reserved.<BR>
-This program and the accompanying materials
-are licensed and made available under the terms and conditions of the BSD
-License which accompanies this distribution.  The full text of the license may
-be found at http://opensource.org/licenses/bsd-license.php
-THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  Routines that talk to the KeypadDevice protocol.
+
+  Copyright (c) 2006 - 2016, Intel Corporation. All rights reserved.<BR>
+
+  This program and the accompanying materials
+  are licensed and made available under the terms and conditions of the BSD
+  License which accompanies this distribution.  The full text of the license may
+  be found at http://opensource.org/licenses/bsd-license.php
+
+  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 **/
 
 #include "Keypad.h"
 
 /**
   Display error message.
+
   @param ConsoleIn Pointer to instance of KEYPAD_CONSOLE_IN_DEV
   @param ErrMsg    Unicode string of error message
 **/
-VOID KeypadError(IN KEYPAD_CONSOLE_IN_DEV *ConsoleIn, IN CHAR16 *ErrMsg)
+VOID
+KeypadError(
+  IN KEYPAD_CONSOLE_IN_DEV *ConsoleIn,
+  IN CHAR16                *ErrMsg)
 {
   ConsoleIn->KeypadErr = TRUE;
 }
@@ -27,11 +34,15 @@ VOID KeypadError(IN KEYPAD_CONSOLE_IN_DEV *ConsoleIn, IN CHAR16 *ErrMsg)
   it read as much scancodes to either fill
   the memory buffer or empty the keypad buffer.
   It is registered as running under TPL_NOTIFY
+
   @param Event       The timer event
   @param Context     A KEYPAD_CONSOLE_IN_DEV pointer
 **/
-VOID EFIAPI KeypadTimerHandler(IN EFI_EVENT Event, IN VOID *Context)
-
+VOID
+EFIAPI
+KeypadTimerHandler(
+  IN EFI_EVENT Event,
+  IN VOID     *Context)
 {
   EFI_TPL                OldTpl;
   KEYPAD_CONSOLE_IN_DEV *ConsoleIn;
@@ -55,9 +66,7 @@ VOID EFIAPI KeypadTimerHandler(IN EFI_EVENT Event, IN VOID *Context)
   UINT64 DeltaCounter        = CurrentCounterValue - ConsoleIn->Last;
   ConsoleIn->Last            = CurrentCounterValue;
 
-  ConsoleIn->KeypadDevice->GetKeys(
-      ConsoleIn->KeypadDevice, &ConsoleIn->KeypadReturnApi,
-      GetTimeInNanoSecond(DeltaCounter));
+  ConsoleIn->KeypadDevice->GetKeys(ConsoleIn->KeypadDevice, &ConsoleIn->KeypadReturnApi, GetTimeInNanoSecond(DeltaCounter));
 
   //
   // Leave critical section and return
@@ -69,18 +78,19 @@ VOID EFIAPI KeypadTimerHandler(IN EFI_EVENT Event, IN VOID *Context)
   Perform 8042 controller and keypad Initialization.
   If ExtendedVerification is TRUE, do additional test for
   the keypad interface
-  @param ConsoleIn - KEYPAD_CONSOLE_IN_DEV instance pointer
+
+  @param ConsoleIn            - KEYPAD_CONSOLE_IN_DEV instance pointer
   @param ExtendedVerification - indicates a thorough initialization
-  @retval EFI_DEVICE_ERROR Fail to init keypad
-  @retval EFI_SUCCESS      Success to init keypad
+
+  @retval EFI_DEVICE_ERROR      Fail to init keypad
+  @retval EFI_SUCCESS           Success to init keypad
 **/
 EFI_STATUS
 InitKeypad(
-    IN OUT KEYPAD_CONSOLE_IN_DEV *ConsoleIn, IN BOOLEAN ExtendedVerification)
+  IN OUT KEYPAD_CONSOLE_IN_DEV *ConsoleIn,
+  IN BOOLEAN                    ExtendedVerification)
 {
-  EFI_STATUS Status;
-
-  Status = EFI_SUCCESS;
+  EFI_STATUS Status = EFI_SUCCESS;
 
   ConsoleIn->KeypadDevice->Reset(ConsoleIn->KeypadDevice);
 
@@ -111,10 +121,5 @@ InitKeypad(
 
   ConsoleIn->IsSupportPartialKey = FALSE;
 
-  if (!EFI_ERROR(Status)) {
-    return EFI_SUCCESS;
-  }
-  else {
-    return EFI_DEVICE_ERROR;
-  }
+  return Status;
 }

@@ -56,4 +56,3 @@
   gEfiSimpleTextInputExProtocolGuid             ## BY_START
   gExynosKeypadDeviceProtocolGuid
   gEfiDevicePathProtocolGuid
-

@@ -5,9 +5,9 @@
 
 #define KEYPAD_DEVICE_PROTOCOL_GUID                                            \
   {                                                                            \
-    0xb27625b5, 0x0b6c, 0x4614,                                                \
+    0x12cf7c54, 0x4962, 0x4d2a,                                                \
     {                                                                          \
-      0xaa, 0x3c, 0x33, 0x13, 0xb5, 0x1d, 0x36, 0x46                           \
+      0x93, 0x48, 0x92, 0x7d, 0xf4, 0xa2, 0x35, 0xe5                           \
     }                                                                          \
   }
 
@@ -34,4 +34,3 @@ struct _KEYPAD_DEVICE_PROTOCOL {
 extern EFI_GUID gExynosKeypadDeviceProtocolGuid;
 
 #endif
-

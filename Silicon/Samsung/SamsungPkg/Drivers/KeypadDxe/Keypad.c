@@ -1,23 +1,19 @@
 /** @file
+  Keypad driver. Routines that interacts with callers, conforming to EFI driver model.
 
-  Keypad driver. Routines that interacts with callers,
-  conforming to EFI driver model
+  Copyright (c) 2006 - 2016, Intel Corporation. All rights reserved.<BR>
 
-Copyright (c) 2006 - 2016, Intel Corporation. All rights reserved.<BR>
-This program and the accompanying materials
-are licensed and made available under the terms and conditions of the BSD
-License which accompanies this distribution.  The full text of the license may
-be found at http://opensource.org/licenses/bsd-license.php
+  This program and the accompanying materials
+  are licensed and made available under the terms and conditions of the BSD
+  License which accompanies this distribution.  The full text of the license may
+  be found at http://opensource.org/licenses/bsd-license.php
 
-THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
-
+  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 **/
-
 #include "Keypad.h"
-#include <Configuration/BootDevices.h>
 
-#include <Device/KeypadDevicePath.h>
+#include <Configuration/BootDevices.h>
 
 //
 // Function prototypes
@@ -29,29 +25,33 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
   @param Controller           driver's controller
   @param RemainingDevicePath  children device path
 
-  @retval EFI_UNSUPPORTED controller is not floppy disk
-  @retval EFI_SUCCESS     controller is floppy disk
+  @retval EFI_UNSUPPORTED     controller is not floppy disk
+  @retval EFI_SUCCESS         controller is floppy disk
 **/
 EFI_STATUS
 EFIAPI
 KeypadControllerDriverSupported(
-    IN EFI_DRIVER_BINDING_PROTOCOL *This, IN EFI_HANDLE Controller,
-    IN EFI_DEVICE_PATH_PROTOCOL *RemainingDevicePath);
+  IN EFI_DRIVER_BINDING_PROTOCOL *This,
+  IN EFI_HANDLE                   Controller,
+  IN EFI_DEVICE_PATH_PROTOCOL    *RemainingDevicePath
+  );
 
 /**
   Create KEYPAD_CONSOLE_IN_DEV instance on controller.
 
-  @param This         Pointer of EFI_DRIVER_BINDING_PROTOCOL
-  @param Controller   driver controller handle
+  @param This                Pointer of EFI_DRIVER_BINDING_PROTOCOL
+  @param Controller          driver controller handle
   @param RemainingDevicePath Children's device path
 
-  @retval whether success to create floppy control instance.
+  @retval                    whether success to create floppy control instance.
 **/
 EFI_STATUS
 EFIAPI
 KeypadControllerDriverStart(
-    IN EFI_DRIVER_BINDING_PROTOCOL *This, IN EFI_HANDLE Controller,
-    IN EFI_DEVICE_PATH_PROTOCOL *RemainingDevicePath);
+  IN EFI_DRIVER_BINDING_PROTOCOL *This,
+  IN EFI_HANDLE                   Controller,
+  IN EFI_DEVICE_PATH_PROTOCOL    *RemainingDevicePath
+  );
 
 /**
   Stop this driver on ControllerHandle. Support stopping any child handles
@@ -65,13 +65,15 @@ KeypadControllerDriverStart(
 
   @retval EFI_SUCCESS       This driver is removed ControllerHandle
   @retval other             This driver was not removed from this device
-
 **/
 EFI_STATUS
 EFIAPI
 KeypadControllerDriverStop(
-    IN EFI_DRIVER_BINDING_PROTOCOL *This, IN EFI_HANDLE Controller,
-    IN UINTN NumberOfChildren, IN EFI_HANDLE *ChildHandleBuffer);
+  IN EFI_DRIVER_BINDING_PROTOCOL *This,
+  IN EFI_HANDLE                   Controller,
+  IN UINTN                        NumberOfChildren,
+  IN EFI_HANDLE                  *ChildHandleBuffer
+  );
 
 /**
   Free the waiting key notify list.
@@ -88,12 +90,13 @@ KbdFreeNotifyList(IN OUT LIST_ENTRY *ListHead);
 // DriverBinding Protocol Instance
 //
 EFI_DRIVER_BINDING_PROTOCOL gKeypadControllerDriver = {
-    KeypadControllerDriverSupported,
-    KeypadControllerDriverStart,
-    KeypadControllerDriverStop,
-    0xa,
-    NULL,
-    NULL};
+  KeypadControllerDriverSupported,
+  KeypadControllerDriverStart,
+  KeypadControllerDriverStop,
+  0xa,
+  NULL,
+  NULL
+};
 
 /**
   Test controller is a keypad Controller.
@@ -102,14 +105,15 @@ EFI_DRIVER_BINDING_PROTOCOL gKeypadControllerDriver = {
   @param Controller           driver's controller
   @param RemainingDevicePath  children device path
 
-  @retval EFI_UNSUPPORTED controller is not floppy disk
-  @retval EFI_SUCCESS     controller is floppy disk
+  @retval EFI_UNSUPPORTED     controller is not floppy disk
+  @retval EFI_SUCCESS         controller is floppy disk
 **/
 EFI_STATUS
 EFIAPI
 KeypadControllerDriverSupported(
-    IN EFI_DRIVER_BINDING_PROTOCOL *This, IN EFI_HANDLE Controller,
-    IN EFI_DEVICE_PATH_PROTOCOL *RemainingDevicePath)
+  IN EFI_DRIVER_BINDING_PROTOCOL *This,
+  IN EFI_HANDLE                   Controller,
+  IN EFI_DEVICE_PATH_PROTOCOL    *RemainingDevicePath)
 {
   EFI_STATUS              Status;
   KEYPAD_DEVICE_PROTOCOL *KeypadDevice;
@@ -117,9 +121,7 @@ KeypadControllerDriverSupported(
   //
   // Open the IO Abstraction(s) needed to perform the supported test
   //
-  Status = gBS->OpenProtocol(
-      Controller, &gExynosKeypadDeviceProtocolGuid, (VOID **)&KeypadDevice,
-      This->DriverBindingHandle, Controller, EFI_OPEN_PROTOCOL_BY_DRIVER);
+  Status = gBS->OpenProtocol(Controller, &gExynosKeypadDeviceProtocolGuid, (VOID **)&KeypadDevice, This->DriverBindingHandle, Controller, EFI_OPEN_PROTOCOL_BY_DRIVER);
   if (EFI_ERROR(Status)) {
     return Status;
   }
@@ -127,19 +129,20 @@ KeypadControllerDriverSupported(
   //
   // Close the I/O Abstraction(s) used to perform the supported test
   //
-  gBS->CloseProtocol(
-      Controller, &gExynosKeypadDeviceProtocolGuid, This->DriverBindingHandle,
-      Controller);
+  gBS->CloseProtocol(Controller, &gExynosKeypadDeviceProtocolGuid, This->DriverBindingHandle, Controller);
 
   return Status;
 }
 
 STATIC
-VOID EFIAPI
-KeypadReturnApiPushEfikeyBufTail(KEYPAD_RETURN_API *This, EFI_KEY_DATA *KeyData)
+EFIAPI
+VOID
+KeypadReturnApiPushEfikeyBufTail(
+  KEYPAD_RETURN_API *This,
+  EFI_KEY_DATA      *KeyData)
 {
-  KEYPAD_CONSOLE_IN_DEV *      ConsoleIn;
-  LIST_ENTRY *                 Link;
+  KEYPAD_CONSOLE_IN_DEV       *ConsoleIn;
+  LIST_ENTRY                  *Link;
   KEYPAD_CONSOLE_IN_EX_NOTIFY *CurrentNotify;
 
   ConsoleIn = KEYPAD_CONSOLE_IN_DEV_FROM_KEYPAD_RETURN_API(This);
@@ -147,9 +150,9 @@ KeypadReturnApiPushEfikeyBufTail(KEYPAD_RETURN_API *This, EFI_KEY_DATA *KeyData)
   //
   // If the key can not be converted then just return.
   //
-  if (KeyData->Key.ScanCode == SCAN_NULL &&
-      KeyData->Key.UnicodeChar == CHAR_NULL) {
+  if (KeyData->Key.ScanCode == SCAN_NULL && KeyData->Key.UnicodeChar == CHAR_NULL) {
     if (!ConsoleIn->IsSupportPartialKey) {
+      DEBUG ((EFI_D_WARN, "Cannot convert this Keycode.\n"));
       return;
     }
   }
@@ -158,12 +161,8 @@ KeypadReturnApiPushEfikeyBufTail(KEYPAD_RETURN_API *This, EFI_KEY_DATA *KeyData)
   // Signal KeyNotify process event if this key pressed matches any key
   // registered.
   //
-  for (Link = GetFirstNode(&ConsoleIn->NotifyList);
-       !IsNull(&ConsoleIn->NotifyList, Link);
-       Link = GetNextNode(&ConsoleIn->NotifyList, Link)) {
-    CurrentNotify =
-        CR(Link, KEYPAD_CONSOLE_IN_EX_NOTIFY, NotifyEntry,
-           KEYPAD_CONSOLE_IN_EX_NOTIFY_SIGNATURE);
+  for (Link = GetFirstNode(&ConsoleIn->NotifyList); !IsNull(&ConsoleIn->NotifyList, Link); Link = GetNextNode(&ConsoleIn->NotifyList, Link)) {
+    CurrentNotify = CR(Link, KEYPAD_CONSOLE_IN_EX_NOTIFY, NotifyEntry, KEYPAD_CONSOLE_IN_EX_NOTIFY_SIGNATURE);
     if (IsKeyRegistered(&CurrentNotify->KeyData, KeyData)) {
       //
       // The key notification function needs to run at TPL_CALLBACK
@@ -181,56 +180,57 @@ KeypadReturnApiPushEfikeyBufTail(KEYPAD_RETURN_API *This, EFI_KEY_DATA *KeyData)
 /**
   Create KEYPAD_CONSOLE_IN_DEV instance on controller.
 
-  @param This         Pointer of EFI_DRIVER_BINDING_PROTOCOL
-  @param Controller   driver controller handle
+  @param This                Pointer of EFI_DRIVER_BINDING_PROTOCOL
+  @param Controller          driver controller handle
   @param RemainingDevicePath Children's device path
 
-  @retval whether success to create floppy control instance.
+  @retval                    whether success to create floppy control instance.
 **/
 EFI_STATUS
 EFIAPI
 KeypadControllerDriverStart(
-    IN EFI_DRIVER_BINDING_PROTOCOL *This, IN EFI_HANDLE Controller,
-    IN EFI_DEVICE_PATH_PROTOCOL *RemainingDevicePath)
+  IN EFI_DRIVER_BINDING_PROTOCOL *This,
+  IN EFI_HANDLE                   Controller,
+  IN EFI_DEVICE_PATH_PROTOCOL    *RemainingDevicePath)
 {
   EFI_STATUS              Status;
   KEYPAD_DEVICE_PROTOCOL *KeypadDevice;
-  KEYPAD_CONSOLE_IN_DEV * ConsoleIn;
+  KEYPAD_CONSOLE_IN_DEV  *ConsoleIn;
 
   //
   // Get the KeyPad Protocol on Controller's handle
   //
-  Status = gBS->OpenProtocol(
-      Controller, &gExynosKeypadDeviceProtocolGuid, (VOID **)&KeypadDevice,
-      This->DriverBindingHandle, Controller, EFI_OPEN_PROTOCOL_BY_DRIVER);
+  Status = gBS->OpenProtocol(Controller, &gExynosKeypadDeviceProtocolGuid, (VOID **)&KeypadDevice, This->DriverBindingHandle, Controller, EFI_OPEN_PROTOCOL_BY_DRIVER);
   if (EFI_ERROR(Status)) {
+    DEBUG ((EFI_D_ERROR, "Failed to Open Keypad Protocol! Status = %r\n", Status));
     return Status;
   }
+
   //
   // Allocate private data
   //
   ConsoleIn = AllocateZeroPool(sizeof(KEYPAD_CONSOLE_IN_DEV));
   if (ConsoleIn == NULL) {
     Status = EFI_OUT_OF_RESOURCES;
-    goto ErrorExit;
+    DEBUG ((EFI_D_ERROR, "Failed to Allocate Private Data! Status = %r\n", Status));
+    goto exit;
   }
+
   //
   // Setup the device instance
   //
-  ConsoleIn->Signature             = KEYPAD_CONSOLE_IN_DEV_SIGNATURE;
-  ConsoleIn->Handle                = Controller;
-  (ConsoleIn->ConIn).Reset         = KeypadEfiReset;
-  (ConsoleIn->ConIn).ReadKeyStroke = KeypadReadKeyStroke;
-  ConsoleIn->KeypadDevice          = KeypadDevice;
-  ConsoleIn->KeypadReturnApi.PushEfikeyBufTail =
-      KeypadReturnApiPushEfikeyBufTail;
-  ConsoleIn->Last = (UINT64)-1;
-
-  ConsoleIn->ConInEx.Reset               = KeypadEfiResetEx;
-  ConsoleIn->ConInEx.ReadKeyStrokeEx     = KeypadReadKeyStrokeEx;
-  ConsoleIn->ConInEx.SetState            = KeypadSetState;
-  ConsoleIn->ConInEx.RegisterKeyNotify   = KeypadRegisterKeyNotify;
-  ConsoleIn->ConInEx.UnregisterKeyNotify = KeypadUnregisterKeyNotify;
+  ConsoleIn->Signature                         = KEYPAD_CONSOLE_IN_DEV_SIGNATURE;
+  ConsoleIn->Handle                            = Controller;
+  (ConsoleIn->ConIn).Reset                     = KeypadEfiReset;
+  (ConsoleIn->ConIn).ReadKeyStroke             = KeypadReadKeyStroke;
+  ConsoleIn->KeypadDevice                      = KeypadDevice;
+  ConsoleIn->KeypadReturnApi.PushEfikeyBufTail = KeypadReturnApiPushEfikeyBufTail;
+  ConsoleIn->Last                              = (UINT64)-1;
+  ConsoleIn->ConInEx.Reset                     = KeypadEfiResetEx;
+  ConsoleIn->ConInEx.ReadKeyStrokeEx           = KeypadReadKeyStrokeEx;
+  ConsoleIn->ConInEx.SetState                  = KeypadSetState;
+  ConsoleIn->ConInEx.RegisterKeyNotify         = KeypadRegisterKeyNotify;
+  ConsoleIn->ConInEx.UnregisterKeyNotify       = KeypadUnregisterKeyNotify;
 
   InitializeListHead(&ConsoleIn->NotifyList);
 
@@ -244,46 +244,45 @@ KeypadControllerDriverStart(
   //
   // Setup the WaitForKey event
   //
-  Status = gBS->CreateEvent(
-      EVT_NOTIFY_WAIT, TPL_NOTIFY, KeypadWaitForKey, ConsoleIn,
-      &((ConsoleIn->ConIn).WaitForKey));
+  Status = gBS->CreateEvent(EVT_NOTIFY_WAIT, TPL_NOTIFY, KeypadWaitForKey, ConsoleIn, &((ConsoleIn->ConIn).WaitForKey));
   if (EFI_ERROR(Status)) {
     Status = EFI_OUT_OF_RESOURCES;
-    goto ErrorExit;
+    DEBUG ((EFI_D_ERROR, "Failed to Create WaitForKey Event! Status = %r\n", Status));
+    goto exit;
   }
+
   //
   // Setup the WaitForKeyEx event
   //
-  Status = gBS->CreateEvent(
-      EVT_NOTIFY_WAIT, TPL_NOTIFY, KeypadWaitForKeyEx, ConsoleIn,
-      &(ConsoleIn->ConInEx.WaitForKeyEx));
+  Status = gBS->CreateEvent(EVT_NOTIFY_WAIT, TPL_NOTIFY, KeypadWaitForKeyEx, ConsoleIn, &(ConsoleIn->ConInEx.WaitForKeyEx));
   if (EFI_ERROR(Status)) {
     Status = EFI_OUT_OF_RESOURCES;
-    goto ErrorExit;
+    DEBUG ((EFI_D_ERROR, "Failed to Create WaitForKeyEx Event! Status = %r\n", Status));
+    goto exit;
   }
+
+  //
   // Setup a periodic timer, used for reading keystrokes at a fixed interval
   //
-  Status = gBS->CreateEvent(
-      EVT_TIMER | EVT_NOTIFY_SIGNAL, TPL_CALLBACK, KeypadTimerHandler,
-      ConsoleIn, &ConsoleIn->TimerEvent);
+  Status = gBS->CreateEvent(EVT_TIMER | EVT_NOTIFY_SIGNAL, TPL_CALLBACK, KeypadTimerHandler, ConsoleIn, &ConsoleIn->TimerEvent);
   if (EFI_ERROR(Status)) {
     Status = EFI_OUT_OF_RESOURCES;
-    goto ErrorExit;
+    DEBUG ((EFI_D_ERROR, "Failed to Create Periodic Timer Event! Status = %r\n", Status));
+    goto exit;
   }
 
-  Status = gBS->SetTimer(
-      ConsoleIn->TimerEvent, TimerPeriodic, KEYPAD_TIMER_INTERVAL);
+  Status = gBS->SetTimer(ConsoleIn->TimerEvent, TimerPeriodic, KEYPAD_TIMER_INTERVAL);
   if (EFI_ERROR(Status)) {
     Status = EFI_OUT_OF_RESOURCES;
-    goto ErrorExit;
+    DEBUG ((EFI_D_ERROR, "Failed to Set Timer State! Status = %r\n", Status));
+    goto exit;
   }
 
-  Status = gBS->CreateEvent(
-      EVT_NOTIFY_SIGNAL, TPL_CALLBACK, KeyNotifyProcessHandler, ConsoleIn,
-      &ConsoleIn->KeyNotifyProcessEvent);
+  Status = gBS->CreateEvent(EVT_NOTIFY_SIGNAL, TPL_CALLBACK, KeyNotifyProcessHandler, ConsoleIn, &ConsoleIn->KeyNotifyProcessEvent);
   if (EFI_ERROR(Status)) {
     Status = EFI_OUT_OF_RESOURCES;
-    goto ErrorExit;
+    DEBUG ((EFI_D_ERROR, "Failed to Create KeyNotify Event! Status = %r\n", Status));
+    goto exit;
   }
 
   //
@@ -292,55 +291,45 @@ KeypadControllerDriverStart(
   Status = ConsoleIn->ConInEx.Reset(&ConsoleIn->ConInEx, FALSE);
   if (EFI_ERROR(Status)) {
     Status = EFI_DEVICE_ERROR;
-    goto ErrorExit;
+    DEBUG ((EFI_D_ERROR, "Failed to Reset Keypad Device! Status = %r\n", Status));
+    goto exit;
   }
 
   ConsoleIn->ControllerNameTable = NULL;
-  AddUnicodeString2(
-      "eng", gKeypadComponentName.SupportedLanguages,
-      &ConsoleIn->ControllerNameTable, L"Keypad Device", TRUE);
-  AddUnicodeString2(
-      "en", gKeypadComponentName2.SupportedLanguages,
-      &ConsoleIn->ControllerNameTable, L"Keypad Device", FALSE);
+  AddUnicodeString2("eng", gKeypadComponentName.SupportedLanguages, &ConsoleIn->ControllerNameTable, L"Keypad Device", TRUE);
+  AddUnicodeString2("en", gKeypadComponentName2.SupportedLanguages, &ConsoleIn->ControllerNameTable, L"Keypad Device", FALSE);
 
   //
   // Install protocol interfaces for the keypad device.
   //
-  Status = gBS->InstallMultipleProtocolInterfaces(
-      &Controller, &gEfiSimpleTextInProtocolGuid, &ConsoleIn->ConIn,
-      &gEfiSimpleTextInputExProtocolGuid, &ConsoleIn->ConInEx, NULL);
+  Status = gBS->InstallMultipleProtocolInterfaces(&Controller, &gEfiSimpleTextInProtocolGuid, &ConsoleIn->ConIn, &gEfiSimpleTextInputExProtocolGuid, &ConsoleIn->ConInEx, NULL);
   if (EFI_ERROR(Status)) {
-    goto ErrorExit;
+    DEBUG ((EFI_D_ERROR, "Failed to Install Keypad Protocol! Status = %r\n", Status));
+    goto exit;
   }
 
   return Status;
 
-ErrorExit:
+exit:
   if ((ConsoleIn != NULL) && (ConsoleIn->ConIn.WaitForKey != NULL)) {
     gBS->CloseEvent(ConsoleIn->ConIn.WaitForKey);
-  }
-
-  if ((ConsoleIn != NULL) && (ConsoleIn->TimerEvent != NULL)) {
+  } else if ((ConsoleIn != NULL) && (ConsoleIn->TimerEvent != NULL)) {
     gBS->CloseEvent(ConsoleIn->TimerEvent);
-  }
-  if ((ConsoleIn != NULL) && (ConsoleIn->ConInEx.WaitForKeyEx != NULL)) {
+  } else if ((ConsoleIn != NULL) && (ConsoleIn->ConInEx.WaitForKeyEx != NULL)) {
     gBS->CloseEvent(ConsoleIn->ConInEx.WaitForKeyEx);
-  }
-  if ((ConsoleIn != NULL) && (ConsoleIn->KeyNotifyProcessEvent != NULL)) {
+  } else if ((ConsoleIn != NULL) && (ConsoleIn->KeyNotifyProcessEvent != NULL)) {
     gBS->CloseEvent(ConsoleIn->KeyNotifyProcessEvent);
   }
+
   KbdFreeNotifyList(&ConsoleIn->NotifyList);
+
   if ((ConsoleIn != NULL) && (ConsoleIn->ControllerNameTable != NULL)) {
     FreeUnicodeStringTable(ConsoleIn->ControllerNameTable);
-  }
-
-  if (ConsoleIn != NULL) {
+  } else if (ConsoleIn != NULL) {
     gBS->FreePool(ConsoleIn);
   }
 
-  gBS->CloseProtocol(
-      Controller, &gExynosKeypadDeviceProtocolGuid, This->DriverBindingHandle,
-      Controller);
+  gBS->CloseProtocol(Controller, &gExynosKeypadDeviceProtocolGuid, This->DriverBindingHandle, Controller);
 
   return Status;
 }
@@ -357,31 +346,31 @@ ErrorExit:
 
   @retval EFI_SUCCESS       This driver is removed ControllerHandle
   @retval other             This driver was not removed from this device
-
 **/
 EFI_STATUS
 EFIAPI
 KeypadControllerDriverStop(
-    IN EFI_DRIVER_BINDING_PROTOCOL *This, IN EFI_HANDLE Controller,
-    IN UINTN NumberOfChildren, IN EFI_HANDLE *ChildHandleBuffer)
+  IN EFI_DRIVER_BINDING_PROTOCOL *This,
+  IN EFI_HANDLE                   Controller,
+  IN UINTN                        NumberOfChildren,
+  IN EFI_HANDLE                  *ChildHandleBuffer)
 {
   EFI_STATUS                      Status;
   EFI_SIMPLE_TEXT_INPUT_PROTOCOL *ConIn;
-  KEYPAD_CONSOLE_IN_DEV *         ConsoleIn;
+  KEYPAD_CONSOLE_IN_DEV          *ConsoleIn;
 
   //
   // Disable Keypad
   //
-  Status = gBS->OpenProtocol(
-      Controller, &gEfiSimpleTextInProtocolGuid, (VOID **)&ConIn,
-      This->DriverBindingHandle, Controller, EFI_OPEN_PROTOCOL_GET_PROTOCOL);
+  Status = gBS->OpenProtocol(Controller, &gEfiSimpleTextInProtocolGuid, (VOID **)&ConIn, This->DriverBindingHandle, Controller, EFI_OPEN_PROTOCOL_GET_PROTOCOL);
   if (EFI_ERROR(Status)) {
+    DEBUG ((EFI_D_ERROR, "Failed to Open STI Protocol! Status = %r\n", Status));
     return Status;
   }
-  Status = gBS->OpenProtocol(
-      Controller, &gEfiSimpleTextInputExProtocolGuid, NULL,
-      This->DriverBindingHandle, Controller, EFI_OPEN_PROTOCOL_TEST_PROTOCOL);
+
+  Status = gBS->OpenProtocol(Controller, &gEfiSimpleTextInputExProtocolGuid, NULL, This->DriverBindingHandle, Controller, EFI_OPEN_PROTOCOL_TEST_PROTOCOL);
   if (EFI_ERROR(Status)) {
+    DEBUG ((EFI_D_ERROR, "Failed to COpen STIEx Protocol! Status = %r\n", Status));
     return Status;
   }
 
@@ -395,16 +384,13 @@ KeypadControllerDriverStop(
   //
   // Uninstall the SimpleTextIn and SimpleTextInEx protocols
   //
-  Status = gBS->UninstallMultipleProtocolInterfaces(
-      Controller, &gEfiSimpleTextInProtocolGuid, &ConsoleIn->ConIn,
-      &gEfiSimpleTextInputExProtocolGuid, &ConsoleIn->ConInEx, NULL);
+  Status = gBS->UninstallMultipleProtocolInterfaces(Controller, &gEfiSimpleTextInProtocolGuid, &ConsoleIn->ConIn, &gEfiSimpleTextInputExProtocolGuid, &ConsoleIn->ConInEx, NULL);
   if (EFI_ERROR(Status)) {
+    DEBUG ((EFI_D_ERROR, "Failed to Remove Keypad Protocol! Status = %r\n", Status));
     return Status;
   }
 
-  gBS->CloseProtocol(
-      Controller, &gExynosKeypadDeviceProtocolGuid, This->DriverBindingHandle,
-      Controller);
+  gBS->CloseProtocol(Controller, &gExynosKeypadDeviceProtocolGuid, This->DriverBindingHandle, Controller);
 
   //
   // Free other resources
@@ -412,15 +398,14 @@ KeypadControllerDriverStop(
   if ((ConsoleIn->ConIn).WaitForKey != NULL) {
     gBS->CloseEvent((ConsoleIn->ConIn).WaitForKey);
     (ConsoleIn->ConIn).WaitForKey = NULL;
-  }
-  if (ConsoleIn->ConInEx.WaitForKeyEx != NULL) {
+  } else if (ConsoleIn->ConInEx.WaitForKeyEx != NULL) {
     gBS->CloseEvent(ConsoleIn->ConInEx.WaitForKeyEx);
     ConsoleIn->ConInEx.WaitForKeyEx = NULL;
-  }
-  if (ConsoleIn->KeyNotifyProcessEvent != NULL) {
+  } else if (ConsoleIn->KeyNotifyProcessEvent != NULL) {
     gBS->CloseEvent(ConsoleIn->KeyNotifyProcessEvent);
     ConsoleIn->KeyNotifyProcessEvent = NULL;
   }
+
   KbdFreeNotifyList(&ConsoleIn->NotifyList);
   FreeUnicodeStringTable(ConsoleIn->ControllerNameTable);
   gBS->FreePool(ConsoleIn);
@@ -431,7 +416,7 @@ KeypadControllerDriverStop(
 /**
   Free the waiting key notify list.
 
-  @param ListHead  Pointer to list head
+  @param ListHead                Pointer to list head
 
   @retval EFI_INVALID_PARAMETER  ListHead is NULL
   @retval EFI_SUCCESS            Sucess to free NotifyList
@@ -442,12 +427,12 @@ KbdFreeNotifyList(IN OUT LIST_ENTRY *ListHead)
   KEYPAD_CONSOLE_IN_EX_NOTIFY *NotifyNode;
 
   if (ListHead == NULL) {
+    DEBUG ((EFI_D_ERROR, "ListHead is NULL!\n"));
     return EFI_INVALID_PARAMETER;
   }
+
   while (!IsListEmpty(ListHead)) {
-    NotifyNode =
-        CR(ListHead->ForwardLink, KEYPAD_CONSOLE_IN_EX_NOTIFY, NotifyEntry,
-           KEYPAD_CONSOLE_IN_EX_NOTIFY_SIGNATURE);
+    NotifyNode = CR(ListHead->ForwardLink, KEYPAD_CONSOLE_IN_EX_NOTIFY, NotifyEntry, KEYPAD_CONSOLE_IN_EX_NOTIFY_SIGNATURE);
     RemoveEntryList(ListHead->ForwardLink);
     gBS->FreePool(NotifyNode);
   }
@@ -463,22 +448,23 @@ KbdFreeNotifyList(IN OUT LIST_ENTRY *ListHead)
 
   @retval EFI_SUCCESS       The entry point is executed successfully.
   @retval other             Some error occurs when executing this entry point.
-
 **/
 EFI_STATUS
 EFIAPI
-InitializeKeypad(IN EFI_HANDLE ImageHandle, IN EFI_SYSTEM_TABLE *SystemTable)
+InitializeKeypad(
+  IN EFI_HANDLE        ImageHandle,
+  IN EFI_SYSTEM_TABLE *SystemTable)
 {
   EFI_STATUS Status;
 
   //
   // Install driver model protocol(s).
   //
-  Status = EfiLibInstallDriverBindingComponentName2(
-      ImageHandle, SystemTable, &gKeypadControllerDriver, ImageHandle,
-      &gKeypadComponentName, &gKeypadComponentName2);
-  ASSERT_EFI_ERROR(Status);
+  Status = EfiLibInstallDriverBindingComponentName2(ImageHandle, SystemTable, &gKeypadControllerDriver, ImageHandle, &gKeypadComponentName, &gKeypadComponentName2);
+  if (EFI_ERROR (Status)) {
+    DEBUG ((EFI_D_ERROR, "Failed to Install Driver Model Protocols! Status = %r\n", Status));
+    ASSERT_EFI_ERROR(Status);
+  }
 
   return Status;
 }
-
