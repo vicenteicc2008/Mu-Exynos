@@ -9,7 +9,7 @@
 #include <Library/DebugLib.h>
 
 #include <Protocol/KeypadDevice.h>
-
+#define USING_SPECIAL_BUTTON FixedPcdGetBool(PcdSpecialButton)
 typedef struct {
   KEY_CONTEXT EfiKeyContext;
   UINT32      PinctrlBase;
@@ -169,9 +169,14 @@ LibKeyUpdateKeyStatus(
 STATIC KEY_CONTEXT_PRIVATE KeyContextPower;
 STATIC KEY_CONTEXT_PRIVATE KeyContextVolumeUp;
 STATIC KEY_CONTEXT_PRIVATE KeyContextVolumeDown;
-STATIC KEY_CONTEXT_PRIVATE KeyContextSpecial;
 
-STATIC KEY_CONTEXT_PRIVATE *KeyList[] = { &KeyContextVolumeDown, &KeyContextVolumeUp, &KeyContextPower, &KeyContextSpecial };
+
+#if USING_SPECIAL_BUTTON
+STATIC KEY_CONTEXT_PRIVATE KeyContextSpecial;
+  STATIC KEY_CONTEXT_PRIVATE *KeyList[] = { &KeyContextVolumeDown, &KeyContextVolumeUp, &KeyContextPower, &KeyContextSpecial };
+#else
+STATIC KEY_CONTEXT_PRIVATE *KeyList[] = { &KeyContextVolumeDown, &KeyContextVolumeUp, &KeyContextPower};
+#endif
 
 STATIC
 VOID
@@ -191,11 +196,12 @@ KEY_CONTEXT_PRIVATE *KeypadKeyCodeToKeyContext(UINT32 KeyCode)
     return &KeyContextVolumeUp;
   } else if (KeyCode == 116) {
     return &KeyContextPower;
-  } else if (FixedPcdGetBool(PcdSpecialButton)) {
-    if (KeyCode == 117) {
+  }
+#if USING_SPECIAL_BUTTON
+  else if (KeyCode == 117) {
       return &KeyContextSpecial;
     }
-  }
+#endif
 
   return NULL;
 }
@@ -231,13 +237,13 @@ KeypadDeviceImplConstructor(VOID)
   StaticContext->BankOffset  = FixedPcdGet32(PcdPowerButtonBankOffset);
   StaticContext->PinNum      = FixedPcdGet32(PcdPowerButtonGpaPin);
 
-  if (FixedPcdGetBool(PcdSpecialButton)) {
+#if USING_SPECIAL_BUTTON
     /// Special Button
     StaticContext              = KeypadKeyCodeToKeyContext(117);
     StaticContext->PinctrlBase = FixedPcdGet32(PcdButtonsPinctrlBase);
     StaticContext->BankOffset  = FixedPcdGet32(PcdVolumeButtonsBankOffset);
     StaticContext->PinNum      = FixedPcdGet32(PcdSpecialButtonGpaPin);
-  }
+#endif
 
   return RETURN_SUCCESS;
 }
@@ -255,10 +261,10 @@ KeypadDeviceImplReset(KEYPAD_DEVICE_PROTOCOL *This)
   LibKeyInitializeKeyContext(&KeyContextPower.EfiKeyContext);
   KeyContextPower.EfiKeyContext.KeyData.Key.UnicodeChar = 0xd;
 
-  if (FixedPcdGetBool(PcdSpecialButton)) {
+#if USING_SPECIAL_BUTTON
     LibKeyInitializeKeyContext(&KeyContextSpecial.EfiKeyContext);
     KeyContextPower.EfiKeyContext.KeyData.Key.ScanCode = SCAN_ESC;
-  }
+#endif
 
   return EFI_SUCCESS;
 }
