@@ -42,21 +42,21 @@
 
   # SmBios
   gSamsungPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Samsung Electronics Co., Ltd."
-  gSamsungPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy J4"
-  gSamsungPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"J400M"
-  gSamsungPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_J4_J400M"
-  gSamsungPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy J4"
+  gSamsungPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy J2 Core"
+  gSamsungPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"J260M"
+  gSamsungPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_J2_Core_J260M"
+  gSamsungPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy J2 Core"
 
   # Simple FrameBuffer
-  gSamsungPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|720
-  gSamsungPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|1280
+  gSamsungPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|540
+  gSamsungPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|960
   gSamsungPkgTokenSpaceGuid.PcdMipiFrameBufferPixelBpp|32
 
 [PcdsDynamicDefault.common]
-  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|720
-  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|1280
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|720
-  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|1280
+  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|540
+  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|960
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoHorizontalResolution|540
+  gEfiMdeModulePkgTokenSpaceGuid.PcdSetupVideoVerticalResolution|960
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutColumn|90
   gEfiMdeModulePkgTokenSpaceGuid.PcdSetupConOutRow|80
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|90
