@@ -30,8 +30,8 @@
 
 [PcdsFixedAtBuild.common]
   # Platform-specific
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000         # Starting address
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x40000000         # 2GB Size
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000         # Starting address
+  gArmTokenSpaceGuid.PcdSystemMemorySize|0x40000000         # 1GB Size
 
   gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"vice2008"   # Device Maintainer
 
