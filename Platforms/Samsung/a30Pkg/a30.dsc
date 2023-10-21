@@ -61,8 +61,6 @@
   gSamsungPkgTokenSpaceGuid.PcdVolumeUpButtonBankOffset|0x60
   gSamsungPkgTokenSpaceGuid.PcdPowerButtonBankOffset|0x40
   gSamsungPkgTokenSpaceGuid.PcdPowerButtonGpaPin|0x7
-  gSamsungPkgTokenSpaceGuid.PcdSpecialButton|FALSE
-  gSamsungPkgTokenSpaceGuid.PcdSpecialButtonGpaPin|0x0
 
   # Simple FrameBuffer
   gSamsungPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1080
