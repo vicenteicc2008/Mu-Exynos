@@ -55,9 +55,10 @@
 
   # Buttons
   gSamsungPkgTokenSpaceGuid.PcdButtonsPinctrlBase|0x11CB0000
-  gSamsungPkgTokenSpaceGuid.PcdVolumeButtonsBankOffset|0x0
+  gSamsungPkgTokenSpaceGuid.PcdVolumeDownButtonBankOffset|0x0
   gSamsungPkgTokenSpaceGuid.PcdVolumeDownButtonGpaPin|0x6
   gSamsungPkgTokenSpaceGuid.PcdVolumeUpButtonGpaPin|0x5
+  gSamsungPkgTokenSpaceGuid.PcdVolumeUpButtonBankOffset|0x60
   gSamsungPkgTokenSpaceGuid.PcdPowerButtonBankOffset|0x40
   gSamsungPkgTokenSpaceGuid.PcdPowerButtonGpaPin|0x7
   gSamsungPkgTokenSpaceGuid.PcdSpecialButton|FALSE

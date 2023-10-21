@@ -51,6 +51,16 @@
   gSamsungPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_S9_G960F"
   gSamsungPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy S9"
 
+  # Buttons
+  gSamsungPkgTokenSpaceGuid.PcdButtonsPinctrlBase|0x14050000
+  gSamsungPkgTokenSpaceGuid.PcdVolumeDownButtonBankOffset|0x0
+  gSamsungPkgTokenSpaceGuid.PcdVolumeDownButtonGpaPin|0x4
+  gSamsungPkgTokenSpaceGuid.PcdVolumeUpButtonBankOffset|0x0
+  gSamsungPkgTokenSpaceGuid.PcdVolumeUpButtonGpaPin|0x3
+  gSamsungPkgTokenSpaceGuid.PcdPowerButtonBankOffset|0x40
+  gSamsungPkgTokenSpaceGuid.PcdPowerButtonGpaPin|0x4
+  gSamsungPkgTokenSpaceGuid.PcdSpecialButtonGpaPin|0x6
+
   # Simple FrameBuffer
   gSamsungPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1440
   gSamsungPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|2960
