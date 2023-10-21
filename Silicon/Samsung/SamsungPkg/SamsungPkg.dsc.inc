@@ -200,7 +200,9 @@
 !endif
 
   PlatformThemeLib|SamsungPkg/Library/PlatformThemeLib/PlatformThemeLib.inf
+!if $(CUSTOM_KEYPAD_IMPL) == 0
   KeypadDeviceImplLib|SamsungPkg/Library/KeypadDeviceImplLib/KeypadDeviceImplLib.inf
+!endif
 
   #
   # Uncomment (and comment out the next line) For RealView Debugger. The Standard IO window
@@ -370,8 +372,6 @@
   UnitTestPersistenceLib|UnitTestFrameworkPkg/Library/UnitTestPersistenceLibNull/UnitTestPersistenceLibNull.inf
   UnitTestResultReportLib|UnitTestFrameworkPkg/Library/UnitTestResultReportLib/UnitTestResultReportLibDebugLib.inf
 
-  BaseCryptLib|CryptoPkg/Library/BaseCryptLib/BaseCryptLib.inf
-
 [LibraryClasses.common.SEC]
   ArmGicArchLib|ArmPkg/Library/ArmGicArchSecLib/ArmGicArchSecLib.inf
   HobLib|EmbeddedPkg/Library/PrePiHobLib/PrePiHobLib.inf
@@ -389,7 +389,6 @@
   PerformanceLib|MdeModulePkg/Library/DxeCorePerformanceLib/DxeCorePerformanceLib.inf
   ReportStatusCodeLib|MdeModulePkg/Library/DxeReportStatusCodeLib/DxeReportStatusCodeLib.inf
   UefiDecompressLib|MdePkg/Library/BaseUefiDecompressLib/BaseUefiDecompressLib.inf
-  BaseCryptLib|CryptoPkg/Library/BaseCryptLib/BaseCryptLib.inf
 
 [LibraryClasses.common.DXE_DRIVER]
   ArmGicArchLib|ArmPkg/Library/ArmGicArchLib/ArmGicArchLib.inf
@@ -412,6 +411,7 @@
   ReportStatusCodeLib|MdeModulePkg/Library/DxeReportStatusCodeLib/DxeReportStatusCodeLib.inf
   ShellLib|ShellPkg/Library/UefiShellLib/UefiShellLib.inf
   UefiDecompressLib|MdePkg/Library/BaseUefiDecompressLib/BaseUefiTianoCustomDecompressLib.inf
+  BaseCryptLib|CryptoPkg/Library/BaseCryptLib/BaseCryptLib.inf
 
 [LibraryClasses.common.UEFI_DRIVER]
   ArmGicArchLib|ArmPkg/Library/ArmGicArchLib/ArmGicArchLib.inf
@@ -497,7 +497,10 @@
   MdeModulePkg/Universal/SerialDxe/SerialDxe.inf
   MdeModulePkg/Universal/SetupBrowserDxe/SetupBrowserDxe.inf
   MdeModulePkg/Universal/SmbiosDxe/SmbiosDxe.inf
-  MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
+  MdeModulePkg/Universal/BdsDxe/BdsDxe.inf {
+    <LibraryClasses>
+    NULL|SamsungPkg/Library/KernelErrataPatcherLib/KernelErrataPatcherLib.inf
+  }
   MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
   MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf
   MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
@@ -531,10 +534,6 @@
   # Graphics Driver
   SamsungPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
 
-  # Keypad
-  SamsungPkg/Drivers/KeypadDxe/KeypadDxe.inf
-  SamsungPkg/Drivers/GenericKeypadDeviceDxe/GenericKeypadDeviceDxe.inf
-
   # Security
   SecurityPkg/VariableAuthenticated/SecureBootConfigDxe/SecureBootConfigDxe.inf
   MdeModulePkg/Universal/SecurityStubDxe/SecurityStubDxe.inf {
@@ -555,12 +554,13 @@
       NULL|SecurityPkg/Library/OemTpm2InitLibNull/OemTpm2InitLibVendorNull.inf
   }
 
-  # Custom Exynos Drivers
-
+  # Keypad
+  SamsungPkg/Drivers/KeypadDxe/KeypadDxe.inf
+  SamsungPkg/Drivers/GenericKeypadDeviceDxe/GenericKeypadDeviceDxe.inf
 
   SamsungPkg/Drivers/GpioButtons/GpioButtons.inf
-  SamsungPkg/Drivers/KernelErrataPatcher/KernelErrataPatcher.inf
-  #SamsungPkg/Drivers/SecureBootProvisioningDxe/SecureBootProvisioningDxe.inf
+  SamsungPkg/Drivers/SecureBootProvisioningDxe/SecureBootProvisioningDxe.inf
+  SamsungPkg/Drivers/SystemIntegrityPolicyProvisioningDxe/SystemIntegrityPolicyProvisioningDxe.inf
 
   # ACPI
   # We use pre-built ACPI tables, so only core components are loaded
