@@ -26,7 +26,7 @@
   FLASH_DEFINITION               = j2coreltePkg/j2corelte.fdf
 
 [LibraryClasses.common]
-  PlatformMemoryMapLib|a10Pkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
+  PlatformMemoryMapLib|j2coreltePkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
 
 [PcdsFixedAtBuild.common]
   # Platform-specific
@@ -62,4 +62,4 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|90
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|80
 
-!include Exynos7570Pkg/Exynos7570Pkg.dsc.inc
+!include E7570Pkg/E7570Pkg.dsc.inc
