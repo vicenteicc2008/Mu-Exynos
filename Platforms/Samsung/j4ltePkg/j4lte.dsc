@@ -24,16 +24,21 @@
   BUILD_TARGETS                  = DEBUG|RELEASE
   SKUID_IDENTIFIER               = DEFAULT
   FLASH_DEFINITION               = j4ltePkg/j4lte.fdf
+  BROKEN_CNTFRQ_EL0              = 1
+  HAS_SPECIAL_BUTTON             = 0
+
+[BuildOptions.common]
+  *_CLANG38_AARCH64_CC_FLAGS = -DBROKEN_CNTFRQ_EL0=$(BROKEN_CNTFRQ_EL0) -DHAS_SPECIAL_BUTTON=$(HAS_SPECIAL_BUTTON)
 
 [LibraryClasses.common]
-  PlatformMemoryMapLib|a10Pkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
+  PlatformMemoryMapLib|j4ltePkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
 
 [PcdsFixedAtBuild.common]
   # Platform-specific
   gArmTokenSpaceGuid.PcdSystemMemoryBase|0x40000000         # Starting address
   gArmTokenSpaceGuid.PcdSystemMemorySize|0x80000000         # 2GB Size
 
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"vice2008"   # Device Maintainer
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"predefine"   # Device Maintainer
 
   gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x40C40000
 
@@ -43,10 +48,18 @@
   # SmBios
   gSamsungPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Samsung Electronics Co., Ltd."
   gSamsungPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy J4"
-  gSamsungPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"J400M"
-  gSamsungPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_J4_J400M"
+  gSamsungPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"J400F"
+  gSamsungPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_J4_J400F"
   gSamsungPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy J4"
 
+  # Buttons
+  gSamsungPkgTokenSpaceGuid.PcdButtonsPinctrlBase|0x139F0000
+  gSamsungPkgTokenSpaceGuid.PcdVolumeDownButtonBankOffset|0x80
+  gSamsungPkgTokenSpaceGuid.PcdVolumeDownButtonGpaPin|0x3
+  gSamsungPkgTokenSpaceGuid.PcdVolumeUpButtonBankOffset|0x40
+  gSamsungPkgTokenSpaceGuid.PcdVolumeUpButtonGpaPin|0x7
+  gSamsungPkgTokenSpaceGuid.PcdPowerButtonBankOffset|0x40
+  gSamsungPkgTokenSpaceGuid.PcdPowerButtonGpaPin|0x4      # TODO: Write pmic power keys driver
   # Simple FrameBuffer
   gSamsungPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|720
   gSamsungPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|1280
@@ -62,4 +75,4 @@
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|90
   gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|80
 
-!include Exynos7570Pkg/Exynos7570Pkg.dsc.inc
+!include E7570Pkg/E7570Pkg.dsc.inc

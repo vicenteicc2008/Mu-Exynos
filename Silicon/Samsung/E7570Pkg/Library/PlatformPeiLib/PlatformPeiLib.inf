@@ -23,7 +23,7 @@
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
   EmbeddedPkg/EmbeddedPkg.dec
-  Exynos9810Pkg/Exynos9810Pkg.dec
+  E7570Pkg/E7570Pkg.dec
   SamsungPkg/SamsungPkg.dec
 
 [LibraryClasses]

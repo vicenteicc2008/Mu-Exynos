@@ -11,7 +11,8 @@
 
 # SoC Defines
 [Defines]
-  USE_PHYSICAL_TIMER             = 0
+  USE_PHYSICAL_TIMER             = 1
+  CUSTOM_KEYPAD_IMPL             = 1
 
 [BuildOptions.common]
   *_*_*_CC_FLAGS = -march=armv8.2-a+crypto+rcpc
@@ -36,12 +37,13 @@
   gArmPlatformTokenSpaceGuid.PcdClusterCount|1
 
 [LibraryClasses.common]
-  PlatformPeiLib|Exynos7570Pkg/Library/PlatformPeiLib/PlatformPeiLib.inf
-  PlatformPrePiLib|Exynos7570Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
-  HwResetSystemLib|Exynos7570Pkg/Library/ResetSystemLib/ResetSystemLib.inf
-  ResetSystemLib|Exynos7570Pkg/Library/ResetSystemLib/ResetSystemLib.inf
+  PlatformPeiLib|E7570Pkg/Library/PlatformPeiLib/PlatformPeiLib.inf
+  PlatformPrePiLib|E7570Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
+  HwResetSystemLib|E7570Pkg/Library/ResetSystemLib/ResetSystemLib.inf
+  ResetSystemLib|E7570Pkg/Library/ResetSystemLib/ResetSystemLib.inf
+  KeypadDeviceImplLib|E7570Pkg/Library/KeypadDeviceImplLib/KeypadDeviceImplLib.inf
 
 [Components.common]
-  Exynos7570Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
+  E7570Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
 !include SamsungPkg/SamsungPkg.dsc.inc

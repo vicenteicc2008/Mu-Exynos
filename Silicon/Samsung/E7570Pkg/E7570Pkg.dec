@@ -1,6 +1,6 @@
 [Defines]
   DEC_SPECIFICATION                   = 0x00010005
-  PACKAGE_NAME                        = Exynos7570Pkg
+  PACKAGE_NAME                        = E7570Pkg
   PACKAGE_GUID                        = 5655fce0-6c0e-4c5e-8226-9b136eef8690
   PACKAGE_VERSION                     = 0.1
 
