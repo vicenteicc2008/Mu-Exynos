@@ -175,6 +175,7 @@ XhciCoreInit (
   return Status;
 }
 
+EFI_STATUS
 NON_DISCOVERABLE_DEVICE_INIT
 EFIAPI
 InitializeUsbController (
