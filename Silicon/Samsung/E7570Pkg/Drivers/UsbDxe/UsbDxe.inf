@@ -34,9 +34,9 @@
   UefiDriverEntryPoint
 
 [FixedPcd]
-  gExynos7570PkgTokenSpaceGuid.PcdNumUsbController
-  gExynos7570PkgTokenSpaceGuid.PcdUsbBaseAddr
-  gExynos7570PkgTokenSpaceGuid.PcdUsbSize
+  gSamsungPkgTokenSpaceGuid.PcdNumUsbController
+  gSamsungPkgTokenSpaceGuid.PcdUsbBaseAddr
+  gSamsungPkgTokenSpaceGuid.PcdUsbSize
 
 [Guids]
   gEfiEndOfDxeEventGroupGuid

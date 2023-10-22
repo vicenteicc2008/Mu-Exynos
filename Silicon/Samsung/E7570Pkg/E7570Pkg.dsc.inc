@@ -36,9 +36,9 @@
   gArmPlatformTokenSpaceGuid.PcdCoreCount|4
   gArmPlatformTokenSpaceGuid.PcdClusterCount|1
 
-  gExynos7570PkgTokenSpaceGuid.PcdNumUsbController|20
-  gExynos7570PkgTokenSpaceGuid.PcdUsbBaseAddr|0x1360c100
-  gExynos7570PkgTokenSpaceGuid.PcdUsbSize|0x1360ffff
+  gSamsungPkgTokenSpaceGuid.PcdNumUsbController|20
+  gSamsungPkgTokenSpaceGuid.PcdUsbBaseAddr|0x1360c100
+  gSamsungPkgTokenSpaceGuid.PcdUsbSize|0x1360ffff
 
 [LibraryClasses.common]
   PlatformPeiLib|E7570Pkg/Library/PlatformPeiLib/PlatformPeiLib.inf
