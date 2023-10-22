@@ -49,6 +49,5 @@
 
 [Components.common]
   E7570Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
-  E7570Pkg/Drivers/UsbDxe/UsbDxe.inf
 
 !include SamsungPkg/SamsungPkg.dsc.inc
