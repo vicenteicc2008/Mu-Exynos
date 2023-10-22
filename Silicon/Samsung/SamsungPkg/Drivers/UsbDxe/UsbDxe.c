@@ -144,7 +144,7 @@ Dwc3CoreInit (
     Reg |= DWC3_GCTL_U2RSTECN;
   }
 
-  MmioWrite32 ((UINTN)&Dwc3Reg->GCtl, Reg);
+  MmioWrite32((UINTN)&Dwc3Reg->GCtl, Reg);
 
   return EFI_SUCCESS;
 }
@@ -194,7 +194,7 @@ InitializeUsbController (
   //
   // Change beat burst and outstanding pipelined transfers requests
   //
-  XhciSetBeatBurstLength (UsbReg);
+  XhciSetBeatBurstLength(UsbReg);
 
   return EFI_SUCCESS;
 }
