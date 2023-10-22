@@ -567,6 +567,8 @@
   #
   # SamsungPkg/Drivers/UsbDxe/UsbDxe.inf
 
+  SamsungPkg/Drivers/DwMmcHcDxe/DwMmcHcDxe.inf
+
   # ACPI
   # We use pre-built ACPI tables, so only core components are loaded
   MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
