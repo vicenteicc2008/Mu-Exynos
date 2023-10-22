@@ -8,15 +8,15 @@
 
 [Defines]
   INF_VERSION                     = 0x0001001A
-  BASE_NAME                       = UsbHcdDxe
+  BASE_NAME                       = UsbDxe
   FILE_GUID                       = 196e7c2a-37b2-4b85-8683-718588952449
   MODULE_TYPE                     = DXE_DRIVER
   VERSION_STRING                  = 1.0
   ENTRY_POINT                     = InitializeUsbHcd
 
 [Sources.common]
-  UsbHcd.c
-  UsbHcd.h
+  UsbDxe.c
+  UsbDxe.h
 
 [Packages]
   MdePkg/MdePkg.dec
