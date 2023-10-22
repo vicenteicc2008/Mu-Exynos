@@ -565,7 +565,7 @@
   #
   # USB
   #
-  SamsungPkg/Drivers/UsbDxe/UsbDxe.inf
+  # SamsungPkg/Drivers/UsbDxe/UsbDxe.inf
 
   # ACPI
   # We use pre-built ACPI tables, so only core components are loaded
