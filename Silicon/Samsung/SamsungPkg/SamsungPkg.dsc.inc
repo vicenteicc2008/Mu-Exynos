@@ -562,6 +562,11 @@
   SamsungPkg/Drivers/SecureBootProvisioningDxe/SecureBootProvisioningDxe.inf
   SamsungPkg/Drivers/SystemIntegrityPolicyProvisioningDxe/SystemIntegrityPolicyProvisioningDxe.inf
 
+  #
+  # USB
+  #
+  SamsungPkg/Drivers/UsbDxe/UsbDxe.inf
+
   # ACPI
   # We use pre-built ACPI tables, so only core components are loaded
   MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
