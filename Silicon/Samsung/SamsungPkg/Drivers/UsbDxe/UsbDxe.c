@@ -176,7 +176,6 @@ XhciCoreInit (
 }
 
 EFI_STATUS
-NON_DISCOVERABLE_DEVICE_INIT
 EFIAPI
 InitializeUsbController (
   IN  UINTN  UsbReg
