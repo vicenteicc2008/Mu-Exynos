@@ -183,7 +183,7 @@ InitializeUsbController (
 {
   EFI_STATUS Status;
 
-  Status = XhciCoreInit (UsbReg);
+  Status = XhciCoreInit(UsbReg);
 
   if (EFI_ERROR (Status)) {
     DEBUG ((DEBUG_ERROR, "USB Controller init Failed for %d (0x%r)\n",
