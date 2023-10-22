@@ -155,7 +155,7 @@ InitializeUsbController (
   }
 
   // Change beat burst and outstanding pipelined transfers requests
-  XhciSetBeatBurstLength (UsbReg);
+  XhciSetBeatBurstLength(UsbReg);
 
   return EFI_SUCCESS;
 }
