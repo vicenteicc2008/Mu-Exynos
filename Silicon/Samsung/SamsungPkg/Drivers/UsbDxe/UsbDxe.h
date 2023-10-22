@@ -1,4 +1,4 @@
-/** @file
+/** @file
 
   Copyright 2017, 2020 NXP
 
@@ -45,9 +45,9 @@
 #define GFLADJ_30MHZ_DEFAULT                   0x20
 
 /* Default to the FSL XHCI defines */
-#define USB2_ENABLE_BEAT_BURST                 0xF
-#define USB2_ENABLE_BEAT_BURST_MASK            0xFF
-#define USB2_SET_BEAT_BURST_LIMIT              0xF00
+#define USB3_ENABLE_BEAT_BURST                 0xF
+#define USB3_ENABLE_BEAT_BURST_MASK            0xFF
+#define USB3_SET_BEAT_BURST_LIMIT              0xF00
 
 typedef struct {
   UINT32 GEvntAdrLo;
