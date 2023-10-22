@@ -12,7 +12,7 @@
 #include <Library/NonDiscoverableDeviceRegistrationLib.h>
 #include <Library/UefiBootServicesTableLib.h>
 
-#include "UsbHcd.h"
+#include "UsbDxe.h"
 
 STATIC
 VOID
