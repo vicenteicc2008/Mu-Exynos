@@ -162,6 +162,7 @@
   TlsLib|CryptoPkg/Library/TlsLib/TlsLib.inf
 
   NonDiscoverableDeviceRegistrationLib|MdeModulePkg/Library/NonDiscoverableDeviceRegistrationLib/NonDiscoverableDeviceRegistrationLib.inf
+  DmaLib|EmbeddedPkg/Library/NonCoherentDmaLib/NonCoherentDmaLib.inf
 
   #
   # It is not possible to prevent the ARM compiler from inserting calls to intrinsic functions.
