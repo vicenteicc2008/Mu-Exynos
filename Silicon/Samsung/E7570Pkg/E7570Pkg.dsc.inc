@@ -36,6 +36,10 @@
   gArmPlatformTokenSpaceGuid.PcdCoreCount|4
   gArmPlatformTokenSpaceGuid.PcdClusterCount|1
 
+  gSamsungTokenSpaceGuid.PcdNumUsbController|20
+  gSamsungTokenSpaceGuid.PcdUsbBaseAddr|0x1360c100
+  gSamsungTokenSpaceGuid.PcdUsbSize|0x1360ffff
+
 [LibraryClasses.common]
   PlatformPeiLib|E7570Pkg/Library/PlatformPeiLib/PlatformPeiLib.inf
   PlatformPrePiLib|E7570Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
