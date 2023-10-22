@@ -136,7 +136,7 @@ Dwc3CoreInit (
 
   MmioWrite32 ((UINTN)&Dwc3Reg->GCtl, Reg);
 
-  return EFI_SUCCESS;
+  return RETURN_SUCCESS;
 }
 
 STATIC
@@ -186,7 +186,7 @@ InitializeUsbController (
   //
   XhciSetBeatBurstLength (UsbReg);
 
-  return EFI_SUCCESS;
+  return RETURN_SUCCESS;
 }
 
 /**
@@ -238,7 +238,7 @@ UsbEndOfDxeCallback (
   @param[in] ImageHandle   The firmware allocated handle for the EFI image.
   @param[in] SystemTable   A pointer to the EFI System Table.
 
-  @retval EFI_SUCCESS      The entry point is executed successfully.
+  @retval RETURN_SUCCESS   The entry point is executed successfully.
   @retval other            Some error occurs when executing this entry point.
 
 **/
