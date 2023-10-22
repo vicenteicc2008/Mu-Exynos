@@ -12,6 +12,6 @@
 
 [PcdsFixedAtBuild.common]
   # Pcds for USB
-  gSamsungTokenSpaceGuid.PcdUsbBaseAddr|0x0|UINT64|0x00000510
-  gSamsungTokenSpaceGuid.PcdUsbSize|0x0|UINT32|0x00000511
-  gSamsungTokenSpaceGuid.PcdNumUsbController|0|UINT32|0x00000512
+  gExynos7570PkgTokenSpaceGuid.PcdUsbBaseAddr|0x0|UINT64|0x00000510
+  gExynos7570PkgTokenSpaceGuid.PcdUsbSize|0x0|UINT32|0x00000511
+  gExynos7570PkgTokenSpaceGuid.PcdNumUsbController|0|UINT32|0x00000512
