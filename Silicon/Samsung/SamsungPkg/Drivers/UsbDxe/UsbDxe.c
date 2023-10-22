@@ -24,10 +24,10 @@ XhciSetBeatBurstLength (
 
   Dwc3Reg = (VOID *)(UsbReg + DWC3_REG_OFFSET);
 
-  MmioAndThenOr32 ((UINTN)&Dwc3Reg->GSBusCfg0, ~USB3_ENABLE_BEAT_BURST_MASK,
-    USB3_ENABLE_BEAT_BURST);
+  MmioAndThenOr32 ((UINTN)&Dwc3Reg->GSBusCfg0, ~USB2_ENABLE_BEAT_BURST_MASK,
+    USB2_ENABLE_BEAT_BURST);
 
-  MmioOr32 ((UINTN)&Dwc3Reg->GSBusCfg1, USB3_SET_BEAT_BURST_LIMIT);
+  MmioOr32 ((UINTN)&Dwc3Reg->GSBusCfg1, USB2_SET_BEAT_BURST_LIMIT);
 }
 
 STATIC
@@ -73,19 +73,9 @@ Dwc3CoreSoftReset (
   //
   // Assert USB2 PHY reset
   //
-  MmioOr32 ((UINTN)&Dwc3Reg->GUsb3PipeCtl[0], DWC3_GUSB3PIPECTL_PHYSOFTRST);
-
-  //
-  // Assert USB3 PHY reset
-  //
   MmioOr32 ((UINTN)&Dwc3Reg->GUsb2PhyCfg, DWC3_GUSB2PHYCFG_PHYSOFTRST);
 
   MemoryFence ();
-
-  //
-  // Clear USB3 PHY reset
-  //
-  MmioAnd32 ((UINTN)&Dwc3Reg->GUsb3PipeCtl[0], ~DWC3_GUSB3PIPECTL_PHYSOFTRST);
 
   //
   // Clear USB2 PHY reset
@@ -118,10 +108,10 @@ Dwc3CoreInit (
 
   Revision = MmioRead32 ((UINTN)&Dwc3Reg->GSnpsId);
   //
-  // This should read as 0x5533, ascii of U3(DWC_usb3) followed by revision num
+  // This should read as 0x5533, ascii of U3(DWC_usb2) followed by revision num
   //
   if ((Revision & DWC3_GSNPSID_MASK) != DWC3_SYNOPSYS_ID) {
-    DEBUG ((DEBUG_ERROR,"This is not a DesignWare USB3 DRD Core.\n"));
+    DEBUG ((DEBUG_ERROR,"This is not a DesignWare USB2 DRD Core.\n"));
     return EFI_NOT_FOUND;
   }
 
