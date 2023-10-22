@@ -175,25 +175,22 @@ XhciCoreInit (
   return Status;
 }
 
-NON_DISCOVERABLE_DEVICE_INIT
+EFI_STATUS
 EFIAPI
 InitializeUsbController (
-  IN  UINTN  UsbReg
-  )
+  IN UINTN UsbReg
+)
 {
   EFI_STATUS Status;
 
   Status = XhciCoreInit(UsbReg);
 
-  if (EFI_ERROR (Status)) {
-    DEBUG ((DEBUG_ERROR, "USB Controller init Failed for %d (0x%r)\n",
-      UsbReg, Status));
-    return (VOID *)EFI_DEVICE_ERROR;
+  if (EFI_ERROR(Status)) {
+    DEBUG((DEBUG_ERROR, "USB Controller init Failed for %d (0x%r)\n", UsbReg, Status));
+    return EFI_DEVICE_ERROR;
   }
 
-  //
-  // Change beat burst and outstanding pipelined transfers requests
-  //
+  // Cambia beat burst y las solicitudes de transferencias pendientes en el tubo
   XhciSetBeatBurstLength(UsbReg);
 
   return EFI_SUCCESS;
