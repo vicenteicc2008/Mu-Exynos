@@ -24,7 +24,7 @@
   SamsungPkg/SamsungPkg.dec
 
 [BuildOptions.AARCH64]
-  GCC:*_*_*_CC_FLAGS = -Wno-error=uninitialized -Wno-error=stringop-overflow -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=enum-conversion
+  GCC:*_*_*_CC_FLAGS = -Wno-error=uninitialized -Wno-error=stringop-overflow -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=enum-conversion -Wno-error=non-literal-null-conversion
 
 [LibraryClasses]
   BaseLib
