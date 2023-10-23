@@ -187,7 +187,7 @@ InitializeUsbController (
 
   if (EFI_ERROR (Status)) {
     DEBUG ((DEBUG_ERROR, "USB Controller init Failed for %d (0x%r)\n", UsbReg, Status));
-    return NULL;
+    return EFI_DEVICE_ERROR;
   }
 
   //
