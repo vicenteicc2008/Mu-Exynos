@@ -23,6 +23,9 @@
   MdeModulePkg/MdeModulePkg.dec
   SamsungPkg/SamsungPkg.dec
 
+[BuildOptions.AARCH64]
+  GCC:*_*_*_CC_FLAGS = -Wno-error=uninitialized -Wno-error=stringop-overflow -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=enum-conversion
+
 [LibraryClasses]
   BaseLib
   BaseMemoryLib
