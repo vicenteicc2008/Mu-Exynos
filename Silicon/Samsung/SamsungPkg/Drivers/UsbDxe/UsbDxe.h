@@ -13,7 +13,7 @@
 
 /* Global constants */
 #define DWC3_GSNPSID_MASK                      0xffff0000
-#define DWC3_SYNOPSYS_ID                       0x13600000
+#define DWC3_SYNOPSYS_ID                       0x1360c100
 #define DWC3_RELEASE_MASK                      0xffff
 #define DWC3_REG_OFFSET                        0x136
 #define DWC3_RELEASE_190a                      0x190a
