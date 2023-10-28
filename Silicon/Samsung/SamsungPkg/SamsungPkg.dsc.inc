@@ -566,7 +566,7 @@
   #
   # USB
   #
-  SamsungPkg/Drivers/UsbDxe/UsbDxe.inf
+  # SamsungPkg/Drivers/UsbDxe/UsbDxe.inf
 
   SamsungPkg/Drivers/DwMmcHcDxe/DwMmcHcDxe.inf
 
