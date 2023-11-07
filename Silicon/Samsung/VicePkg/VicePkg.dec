@@ -1,0 +1,13 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = VicePkg
+  PACKAGE_GUID                        = 057fef90-7881-4ce3-a588-fe0100669cfb
+  PACKAGE_VERSION                     = 0.1
+
+[Includes.common]
+  Include                               # Root include for the package
+
+[Guids.common]
+  # NOTE: For these Values you need to use the GUID you generated earlier!
+  # These are just example Values.
+  gViceTokenSpaceGuid    = { 0x057fef90, 0x7881, 0x4ce3, { 0xa5, 0x88, 0xfe, 0x01, 0x00, 0x69, 0xc, 0xfb } }

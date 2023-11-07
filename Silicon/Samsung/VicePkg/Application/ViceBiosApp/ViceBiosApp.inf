@@ -1,0 +1,25 @@
+[Defines]
+  INF_VERSION                    = 1.25
+  BASE_NAME                      = ViceBiosApp
+  FILE_GUID                      = 8EF4F22E-151B-4F36-A6D3-35BC6ABEAC72
+  MODULE_TYPE                    = UEFI_APPLICATION
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = UefiMain
+
+[Sources]
+  ViceBios.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+
+[LibraryClasses]
+  UefiDriverEntryPoint
+  UefiLib
+  BaseLib
+
+[Protocols]
+  gEfiSimpleTextOutProtocolGuid
+
+[Guids]
+
+[Pcd]
