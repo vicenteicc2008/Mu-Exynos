@@ -23,6 +23,7 @@ SPDX-License-Identifier: BSD-2-Clause-Patent
 
 #define MS_SDD_BOOT       L"Internal Storage"
 #define MS_SDD_BOOT_PARM  "SDD"
+#define VICE_BIOS         L"Vice BIOS"
 
 typedef struct {
   MEDIA_FW_VOL_DEVICE_PATH    FvDevPath;
@@ -471,7 +472,7 @@ MsBootOptionsLibGetDefaultOptions (
   OUT UINTN  *OptionCount
   )
 {
-  UINTN                         LocalOptionCount      = 1;
+  UINTN                         LocalOptionCount      = 2;
   EFI_BOOT_MANAGER_LOAD_OPTION  *Option;
   EFI_STATUS                    Status;
 
@@ -483,6 +484,7 @@ MsBootOptionsLibGetDefaultOptions (
   }
 
   Status  = CreateFvBootOption (&gMsBootPolicyFileGuid, MS_SDD_BOOT, &Option[0], LOAD_OPTION_ACTIVE, (UINT8 *)MS_SDD_BOOT_PARM, sizeof (MS_SDD_BOOT_PARM));
+  Status |= CreateFvBootOption (&gMsBootPolicyFileGuid, VICE_BIOS, &Option[1], LOAD_OPTION_ACTIVE, NULL, 0);
 
   if (EFI_ERROR (Status)) {
     DEBUG ((DEBUG_ERROR, "%a Error creating defatult boot options\n", __FUNCTION__));
