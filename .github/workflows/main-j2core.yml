@@ -11,7 +11,7 @@ name: Build
 
 jobs:
   create-boot-image:
-    name: Create boot image for j4lte
+    name: Create boot image for j2corelte
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source
