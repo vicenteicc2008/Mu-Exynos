@@ -1,11 +1,11 @@
 [Defines]
   DEC_SPECIFICATION                   = 0x00010005
   PACKAGE_NAME                        = j2corelte
-  PACKAGE_GUID                        = 93cf4d7c-0441-4a40-891b-4b5f8d4a34ef
+  PACKAGE_GUID                        = 1df3decf-e6be-460b-923a-c5d8446787db
   PACKAGE_VERSION                     = 0.1
 
 [Includes.common]
   Include                               # Root include for the package
 
 [Guids.common]
-  gj2corelteTokenSpaceGuid           = { 0x93cf4d7c, 0x0441, 0x4a40, { 0x89, 0x1b, 0x4b, 0x5f, 0x8d, 0x4a, 0x34, 0xef } }
+  gj2corelteTokenSpaceGuid           = { 0x1df3decf, 0xe6be, 0x460b, { 0x92, 0x3a, 0xc5, 0xd8, 0x44, 0x67, 0x87, 0xdb } }

@@ -16,7 +16,7 @@
 ################################################################################
 [Defines]
   PLATFORM_NAME                  = j2corelte
-  PLATFORM_GUID                  = 93cf4d7c-0441-4a40-891b-4b5f8d4a34ef
+  PLATFORM_GUID                  = 1df3decf-e6be-460b-923a-c5d8446787db
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
   OUTPUT_DIRECTORY               = Build/j2coreltePkg
