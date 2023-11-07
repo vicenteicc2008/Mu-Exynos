@@ -76,7 +76,7 @@
   gEfiMdePkgTokenSpaceGuid.PcdDefaultTerminalType|4
 
   # Boot Manager
-  gEfiMdePkgTokenSpaceGuid.PcdPlatformBootTimeOut|3
+  gEfiMdePkgTokenSpaceGuid.PcdPlatformBootTimeOut|0
 
   # PCI Express
   gEfiMdeModulePkgTokenSpaceGuid.PcdSrIovSupport|FALSE
