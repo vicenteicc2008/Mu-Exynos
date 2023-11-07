@@ -47,6 +47,14 @@
   gSamsungPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_J2_Core_J260M"
   gSamsungPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy J2 Core"
 
+  # Buttons
+  gSamsungPkgTokenSpaceGuid.PcdButtonsPinctrlBase|0x139F0000
+  gSamsungPkgTokenSpaceGuid.PcdVolumeDownButtonBankOffset|0x80
+  gSamsungPkgTokenSpaceGuid.PcdVolumeDownButtonGpaPin|0x3
+  gSamsungPkgTokenSpaceGuid.PcdVolumeUpButtonBankOffset|0x40
+  gSamsungPkgTokenSpaceGuid.PcdVolumeUpButtonGpaPin|0x7
+  gSamsungPkgTokenSpaceGuid.PcdPowerButtonBankOffset|0x40
+  gSamsungPkgTokenSpaceGuid.PcdPowerButtonGpaPin|0x4      # TODO: Write pmic power keys driver
   # Simple FrameBuffer
   gSamsungPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|540
   gSamsungPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|960
