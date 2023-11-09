@@ -129,6 +129,11 @@ READ_LOCK_STATUS   = TRUE
 
   INF SamsungPkg/Drivers/GpioButtons/GpioButtons.inf
 
+  FILE APPLICATION = BCD49E4D-71CE-4213-97A1-214E76F8B587 {
+    SECTION PE32 = j4ltePkg/RAMDisk/bootaa64.efi
+    SECTION UI = "Windows Test"
+  }
+
 [FV.FVMAIN_COMPACT]
 FvAlignment        = 8
 ERASE_POLARITY     = 1
