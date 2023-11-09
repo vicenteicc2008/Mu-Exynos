@@ -15,7 +15,7 @@
 [LibraryClasses]
   UefiDriverEntryPoint
   UefiLib
-  BaseLib
+  DebugLib
 
 [Protocols]
   gEfiSimpleTextOutProtocolGuid
