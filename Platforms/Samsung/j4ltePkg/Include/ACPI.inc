@@ -18,5 +18,5 @@ FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
 #  SECTION RAW = SamsungPkg/AcpiTables/SSDT.aml
 #  SECTION RAW = SamsungPkg/AcpiTables/TPMDev.dat
 #  SECTION RAW = SamsungPkg/AcpiTables/SoftwareTpm2Table.aml
-#  SECTION UI = "AcpiTables"
-#}
+  SECTION UI = "AcpiTables"
+}
