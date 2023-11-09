@@ -1,5 +1,6 @@
 #include <Uefi.h>
 #include <Library/UefiBootServicesTableLib.h>
+#include <Library/DebugLib.h>
 
 EFI_STATUS
 EFIAPI
@@ -22,6 +23,8 @@ UefiMain(
   if (EFI_ERROR(Status)) {
     return Status;
   }
+
+  DEBUG((EFI_D_INFO, "¡Hello, world! starting ViceBios.\n"));
 
   return EFI_SUCCESS;
 }
