@@ -1,6 +1,10 @@
 #include <Uefi.h>
 #include <Library/UefiBootServicesTableLib.h>
 #include <Library/DebugLib.h>
+#include <Library/MemoryAllocationLib.h>
+#include <Library/BaseMemoryLib.h>
+#include <Library/DxeServicesTableLib.h>
+#include <Protocol/HiiImage.h>
 
 EFI_STATUS
 EFIAPI
@@ -25,6 +29,17 @@ UefiMain(
   }
 
   DEBUG((EFI_D_INFO, "¡Hello, world! starting ViceBios.\n"));
+
+  Status = gBS->AllocatePool (
+                EfiBootServicesData,
+				10,
+				(VOID **)&Buffer
+                );
+  if (EFI_ERROR (Status)) {
+    return Status;
+  }
+
+  gBS->FreePool(Buffer);
 
   return EFI_SUCCESS;
 }

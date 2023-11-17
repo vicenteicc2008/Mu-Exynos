@@ -13,9 +13,11 @@
   MdePkg/MdePkg.dec
 
 [LibraryClasses]
-  UefiDriverEntryPoint
+  UefiApplicationEntryPoint
   UefiLib
   DebugLib
+  MemoryAllocationLib
+  BaseMemoryLib
 
 [Protocols]
   gEfiSimpleTextOutProtocolGuid
