@@ -16,7 +16,6 @@
   INF MdeModulePkg/Universal/PrintDxe/PrintDxe.inf
   INF MdeModulePkg/Universal/DevicePathDxe/DevicePathDxe.inf
   INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf
-  INF MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
 
 !if $(USE_FBPATCH) == 1
   INF SamsungPkg/Drivers/ConSplitterDxe/ConSplitterDxe.inf
