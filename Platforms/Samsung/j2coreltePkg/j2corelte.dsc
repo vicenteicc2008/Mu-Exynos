@@ -26,9 +26,10 @@
   FLASH_DEFINITION               = j2coreltePkg/j2corelte.fdf
   BROKEN_CNTFRQ_EL0              = 1
   HAS_SPECIAL_BUTTON             = 0
+  USE_FBPATCH                    = 1
 
 [BuildOptions.common]
-  *_CLANG38_AARCH64_CC_FLAGS = -DBROKEN_CNTFRQ_EL0=$(BROKEN_CNTFRQ_EL0) -DHAS_SPECIAL_BUTTON=$(HAS_SPECIAL_BUTTON)
+  *_CLANG38_AARCH64_CC_FLAGS = -DBROKEN_CNTFRQ_EL0=$(BROKEN_CNTFRQ_EL0) -DHAS_SPECIAL_BUTTON=$(HAS_SPECIAL_BUTTON) -DUSE_FBPATCH=$(USE_FBPATCH)
 
 [LibraryClasses.common]
   PlatformMemoryMapLib|j2coreltePkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
