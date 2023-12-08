@@ -20,7 +20,9 @@
 
 !if $(USE_FBPATCH) == 1
   INF SamsungPkg/Drivers/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
+  INF SamsungPkg/Drivers/ConSplitterDxe/ConSplitterDxe.inf
 !else
+  INF MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
   INF MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
 !endif
 
