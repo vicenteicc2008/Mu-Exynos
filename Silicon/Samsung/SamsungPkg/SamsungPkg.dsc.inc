@@ -503,11 +503,12 @@
   }
   MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
   MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf
-  MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
 
 !if $(USE_FBPATCH) == 1
+  SamsungPkg/Drivers/ConSplitterDxe/ConSplitterDxe.inf
   SamsungPkg/Drivers/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
 !else
+  MdeModulePkg/Universal/Console/ConSplitterDxe/ConSplitterDxe.inf
   MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsoleDxe.inf
 !endif
 
