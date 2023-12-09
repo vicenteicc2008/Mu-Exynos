@@ -31,7 +31,6 @@
   INF SamsungPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
   INF SamsungPkg/Drivers/GenericKeypadDeviceDxe/GenericKeypadDeviceDxe.inf
   INF SamsungPkg/Drivers/KeypadDxe/KeypadDxe.inf 
-  # INF SamsungPkg/Drivers/UsbDxe/UsbDxe.inf
   INF SamsungPkg/Drivers/DwMmcHcDxe/DwMmcHcDxe.inf  
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
   INF MdeModulePkg/Universal/Acpi/BootGraphicsResourceTableDxe/BootGraphicsResourceTableDxe.inf
