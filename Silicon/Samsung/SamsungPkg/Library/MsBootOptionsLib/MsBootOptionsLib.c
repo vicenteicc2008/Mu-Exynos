@@ -156,6 +156,25 @@ MsBootOptionsLibGetDefaultBootApp (
 }
 
 /**
+  Return the boot option corresponding to the UEFI Shell.
+
+  @param BootOption     Return a created UEFI Shell with the parameter passed
+
+  @retval EFI_SUCCESS   The UEFI Shell is successfully returned.
+  @retval Status        Return status of gRT->SetVariable (). BootOption still points
+                        to the Slot UEFI Shell even the Status is not EFI_SUCCESS.
+**/
+EFI_STATUS
+EFIAPI
+MsBootOptionsLibUEFIShell (
+  IN OUT EFI_BOOT_MANAGER_LOAD_OPTION  *BootOption,
+  IN     CHAR8                         *Parameter
+  )
+{
+  return BuildFwLoadOption (BootOption, PcdGetPtr (PcdShellFile), Parameter);
+}
+
+/**
   Return the boot option corresponding to the Boot Manager Menu.
 
   @param BootOption    Return a created Boot Manager Menu with the parameter passed
