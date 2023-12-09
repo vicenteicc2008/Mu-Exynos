@@ -944,7 +944,7 @@ DeviceBootManagerPriorityBoot (
     DEBUG ((DEBUG_INFO, "[Bds] enter Front Page\n"));
     Status = MsBootOptionsLibGetBootManagerMenu (BootOption, "VOL+");
     SetRebootReason (OEM_REBOOT_TO_SETUP_KEY);
-  } else if (UEFIShell) 
+  } else if (UEFIShell) {
       DEBUG ((DEBUG_INFO, "[Bds] UEFI Shell\n"));
       Status = MsBootOptionsLibUEFIShell (BootOption, "VOL-");
   } else {
