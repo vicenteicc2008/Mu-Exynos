@@ -914,18 +914,22 @@ DeviceBootManagerPriorityBoot (
 {
   BOOLEAN     FrontPageBoot;
   BOOLEAN     AltDeviceBoot;
+  BOOLEAN     UEFIShell;
+
   EFI_STATUS  Status;
 
   FrontPageBoot = MsBootPolicyLibIsSettingsBoot ();
   AltDeviceBoot = MsBootPolicyLibIsAltBoot ();
+  UEFIShell     = MsBootPolicyLibUEFIShell ();
   MsBootPolicyLibClearBootRequests ();
 
   // There are four cases:
   //   1. Nothing pressed.             return EFI_NOT_FOUND
   //   2. FrontPageBoot                load FrontPage
   //   3. AltDeviceBoot                load alternate boot order
-  //   4. Both indicators are present  Load NetworkUnlock
-  FrontPageBoot = TRUE;
+  //   4. UEFIShell                    load UEFI Shell
+  //   5. Both indicators are present  Load NetworkUnlock
+  FrontPageBoot = FALSE;
   if (AltDeviceBoot) {
     // Alternate boot or Network Unlock option
     if (FrontPageBoot) {
@@ -940,6 +944,9 @@ DeviceBootManagerPriorityBoot (
     DEBUG ((DEBUG_INFO, "[Bds] enter Front Page\n"));
     Status = MsBootOptionsLibGetBootManagerMenu (BootOption, "VOL+");
     SetRebootReason (OEM_REBOOT_TO_SETUP_KEY);
+  } else if (UEFIShell) 
+      DEBUG ((DEBUG_INFO, "[Bds] UEFI Shell\n"));
+      Status = MsBootOptionsLibUEFIShell (BootOption, "VOL-");
   } else {
     Status = EFI_NOT_FOUND;
   }
