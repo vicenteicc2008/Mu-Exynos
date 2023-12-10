@@ -929,7 +929,6 @@ DeviceBootManagerPriorityBoot (
   //   3. UEFIShell                    load UEFI Shell
   //   4. Both indicators are present  Load NetworkUnlock
   FrontPageBoot = FALSE;
-  UEFIShell     = TRUE;
   if (UEFIShell) {
     // Alternate boot or Network Unlock option
     if (FrontPageBoot) {
