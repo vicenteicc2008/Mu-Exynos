@@ -18,6 +18,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Build Mu
         run: |
+          sudo apt update
           chmod 744 ./setup_env.sh
           ./setup_env.sh -p apt
           chmod 744 ./build_uefi.sh
