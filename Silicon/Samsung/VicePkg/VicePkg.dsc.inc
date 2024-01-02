@@ -10,6 +10,5 @@
 ##
 
 [Components.common]
-  VicePkg/Application/ViceBiosApp/ViceBiosApp.inf
 
 !include SamsungPkg/SamsungPkg.dsc.inc
