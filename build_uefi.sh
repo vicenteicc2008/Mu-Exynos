@@ -13,7 +13,7 @@ function _help(){
 	echo "	--help, -h:                                 Shows this Help."
 	echo "	--memory <RAM Size>, -m <RAM Size>:         Define how much Memory your Device has."
 	echo
-	echo "MainPage: https://github.com/Robotix22/Mu-Samsung"
+	echo "MainPage: https://github.com/vicenteicc2008/Mu-Exynos"
 	exit 1
 }
 
