@@ -5,5 +5,6 @@ Mu-*.img
 Platforms/Samsung/starltePkg/__pycache__/
 Platforms/Samsung/beyond1ltePkg/__pycache__/
 Platforms/Samsung/a10Pkg/__pycache__/
+Platforms/Samsung/a30Pkg/__pycache__/
 boot.img
 Mu-*.tar
