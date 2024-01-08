@@ -1,0 +1,22 @@
+#FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
+#  SECTION RAW = E7570Pkg/AcpiTables/MADT.aml
+#  SECTION RAW = E7570Pkg/AcpiTables/BERT.aml
+#  SECTION RAW = E7570Pkg/AcpiTables/BGRT.aml
+#  SECTION RAW = E7570Pkg/AcpiTables/CSRT.aml
+#  SECTION RAW = E7570Pkg/AcpiTables/DBG2.aml
+#  SECTION RAW = j4ltePkg/AcpiTables/DSDT.aml
+#  SECTION RAW = E7570Pkg/AcpiTables/FADT.aml
+#  SECTION RAW = E7570Pkg/AcpiTables/FPDT.aml
+#  SECTION RAW = E7570Pkg/AcpiTables/GTDT.aml
+#  SECTION RAW = E7570Pkg/AcpiTables/IORT.aml
+#  SECTION RAW = E7570Pkg/AcpiTables/MCFG.aml
+#  SECTION RAW = E7570Pkg/AcpiTables/MSDM.aml
+#  SECTION RAW = E7570Pkg/AcpiTables/PPTT.aml
+#  SECTION RAW = E7570Pkg/AcpiTables/SPCR.aml
+#  SECTION RAW = E7570Pkg/AcpiTables/TPM2.aml
+#  SECTION RAW = E7570Pkg/AcpiTables/XSDT.aml
+#  SECTION RAW = VicePkg/AcpiTables/SSDT.aml
+#  SECTION RAW = SamsungPkg/AcpiTables/TPMDev.dat
+#  SECTION RAW = SamsungPkg/AcpiTables/SoftwareTpm2Table.aml
+#  SECTION UI = "AcpiTables"
+#}

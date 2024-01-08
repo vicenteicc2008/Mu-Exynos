@@ -1,0 +1,11 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = j7
+  PACKAGE_GUID                        = b81a3319-8c2d-4355-bd48-cd8f8729baad
+  PACKAGE_VERSION                     = 0.1
+
+[Includes.common]
+  Include                               # Root include for the package
+
+[Guids.common]
+  gj7TokenSpaceGuid           = { 0xb81a3319, 0x8c2d, 0x4355, { 0xbd, 0x48, 0xcd, 0x8f, 0x87, 0x29, 0xba, 0xad } }

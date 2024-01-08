@@ -1,0 +1,11 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = E7580Pkg
+  PACKAGE_GUID                        = a9a3f160-62e9-4a26-9262-de7f1088e070
+  PACKAGE_VERSION                     = 0.1
+
+[Includes.common]
+  Include                               # Root include for the package
+
+[Guids.common]
+  gExynos7580PkgTokenSpaceGuid        = { 0xa9a3f160, 0x62e9, 0x4a26, { 0x92, 0x62, 0xde, 0x7f, 0x10, 0x88, 0xe0, 0x70 } }
