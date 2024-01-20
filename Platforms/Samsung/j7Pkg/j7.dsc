@@ -47,10 +47,10 @@
 
   # SmBios
   gSamsungPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Samsung Electronics Co., Ltd."
-  gSamsungPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy J7"
+  gSamsungPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy J7 (2015)"
   gSamsungPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"J700M"
   gSamsungPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_J7_J700M"
-  gSamsungPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy J7"
+  gSamsungPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy J7 (2015)"
 
   # Buttons
   gSamsungPkgTokenSpaceGuid.PcdButtonsPinctrlBase|0x139B0000

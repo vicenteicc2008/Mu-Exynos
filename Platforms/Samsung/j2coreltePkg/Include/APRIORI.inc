@@ -16,4 +16,8 @@ APRIORI DXE {
     INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
     INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
 
+    INF SamsungPkg/Drivers/GpaDxe/GpaDxe.inf
+    INF E7570Pkg/Drivers/ChipInfoDxe/ChipInfoDxe.inf
+    INF E7570Pkg/Drivers/ClockDxe/ClockDxe.inf
+
 }

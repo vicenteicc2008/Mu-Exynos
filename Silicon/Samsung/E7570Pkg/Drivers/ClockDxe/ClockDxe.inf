@@ -1,0 +1,39 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = ClockDxe
+  FILE_GUID                      = 18EF9F2A-0348-4F5D-9AC6-E98ECA5C7296
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = ClockDriverEntryPoint
+
+[Sources.common]
+  ClockDxe.c
+  Clock.h
+
+[Packages]
+  MdePkg/MdePkg.dec
+  EmbeddedPkg/EmbeddedPkg.dec
+  ArmPkg/ArmPkg.dec
+  SamsungPkg/SamsungPkg.dec
+
+[LibraryClasses]
+  BaseLib
+  UefiLib
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  BaseMemoryLib
+  DebugLib
+  MemoryAllocationLib
+  CacheMaintenanceLib
+  DebugLib
+
+[Protocols]
+  gEfiClockProtocolGuid
+  gEfiVariableServicesProtocolGuid
+
+[Guids]
+  gSamsungPkgTokenSpaceGuid
+  gEfiEventExitBootServicesGuid
+
+[Depex]
+  TRUE

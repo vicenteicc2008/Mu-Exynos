@@ -89,7 +89,7 @@
   gEfiSecurityPkgTokenSpaceGuid.PcdUserPhysicalPresence|TRUE
 
   # FrameBuffer Delay
-  gSamsungPkgTokenSpaceGuid.PcdMipiFrameBufferDelay|50         # In Microseconds
+  gSamsungPkgTokenSpaceGuid.PcdMipiFrameBufferDelay|100         # In Microseconds
 
   # a PCD that controls the enumeration and connection of ConIn's. When true, ConIn is only connected once a console input is requests
   gEfiMdeModulePkgTokenSpaceGuid.PcdConInConnectOnDemand|FALSE
@@ -565,6 +565,7 @@
   SamsungPkg/Drivers/KeypadDxe/KeypadDxe.inf
   SamsungPkg/Drivers/GenericKeypadDeviceDxe/GenericKeypadDeviceDxe.inf
 
+  SamsungPkg/Drivers/GpaDxe/GpaDxe.inf
   SamsungPkg/Drivers/GpioButtons/GpioButtons.inf
   SamsungPkg/Drivers/SecureBootProvisioningDxe/SecureBootProvisioningDxe.inf
   SamsungPkg/Drivers/SystemIntegrityPolicyProvisioningDxe/SystemIntegrityPolicyProvisioningDxe.inf

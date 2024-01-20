@@ -24,6 +24,7 @@
   INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
   INF CryptoPkg/Driver/CryptoDxe.inf
   INF SamsungPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
+  INF SamsungPkg/Drivers/GpaDxe/GpaDxe.inf
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
   INF MdeModulePkg/Universal/Acpi/BootGraphicsResourceTableDxe/BootGraphicsResourceTableDxe.inf
   INF MdeModulePkg/Universal/Acpi/FirmwarePerformanceDataTableDxe/FirmwarePerformanceDxe.inf
