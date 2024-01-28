@@ -11,11 +11,11 @@ name: Build
 
 jobs:
   create-boot-image:
-    name: Create boot image for j4lte
+    name: Create boot image for j7
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Build Mu
         run: |
           sudo apt update
