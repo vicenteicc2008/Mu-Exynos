@@ -1,5 +1,5 @@
 # @file
-# Script to Build Galaxy S10 UEFI firmware
+# Script to Build Galaxy J4 UEFI firmware
 #
 # Copyright (c) Microsoft Corporation.
 # SPDX-License-Identifier: BSD-2-Clause-Patent
@@ -37,6 +37,7 @@ class CommonPlatform():
     Scopes = ('j4lte', 'gcc_aarch64_linux', 'edk2-build')
     WorkspaceRoot = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
     PackagesPath = (
+        "GPLDrivers",
         "Platforms/Samsung",
         "Mu_Basecore",
         "Common/Mu",

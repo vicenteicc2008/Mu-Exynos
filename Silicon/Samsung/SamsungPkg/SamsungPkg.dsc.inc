@@ -583,4 +583,6 @@
 
   CryptoPkg/Driver/CryptoDxe.inf
 
+  ViceBios/Apps/BootMenuApp/ViceBootMenu.inf
+
 !include SamsungPkg/Frontpage.dsc.inc

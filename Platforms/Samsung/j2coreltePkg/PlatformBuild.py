@@ -37,6 +37,7 @@ class CommonPlatform():
     Scopes = ('j2corelte', 'gcc_aarch64_linux', 'edk2-build')
     WorkspaceRoot = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
     PackagesPath = (
+        "GPLDrivers",
         "Platforms/Samsung",
         "Mu_Basecore",
         "Common/Mu",
