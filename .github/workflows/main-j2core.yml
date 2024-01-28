@@ -23,7 +23,7 @@ jobs:
           ./setup_env.sh -p apt
           chmod 744 ./build_uefi.sh
           ./build_uefi.sh -d j2corelte -r DEBUG
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: Samsung Galaxy J2 Core
           path: ./Mu-j2corelte.tar

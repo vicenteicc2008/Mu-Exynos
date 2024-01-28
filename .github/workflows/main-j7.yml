@@ -23,7 +23,7 @@ jobs:
           ./setup_env.sh -p apt
           chmod 744 ./build_uefi.sh
           ./build_uefi.sh -d j7 -r DEBUG
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: Samsung Galaxy J7
           path: ./Mu-j7.tar
