@@ -10,11 +10,6 @@
   NetLib|NetworkPkg/Library/DxeNetLib/DxeNetLib.inf
 
   #
-  # Contains intrinsics for crypto operations
-  #
-  IntrinsicLib|CryptoPkg/Library/IntrinsicLib/IntrinsicLib.inf
-
-  #
   # contains NULL routines to support UI operations associated with DFCI.
   #
   DfciUiSupportLib|OemPkg/Library/DfciUiSupportLib/DfciUiSupportLib.inf
@@ -25,15 +20,10 @@
   DfciRecoveryLib|DfciPkg/Library/DfciRecoveryLib/DfciRecoveryLib.inf
 
   #
-  # Contains openSSL library used by BaseCryptoLib
-  #
-  OpensslLib|CryptoPkg/Library/OpensslLib/OpensslLib.inf
-
-  #
   # Functions that should contain base logic for querying, setting, and verifying user passwords.
   #
   PasswordStoreLib|OemPkg/Library/PasswordStoreLib/PasswordStoreLib.inf
-  BaseCryptLib|CryptoPkg/Library/BaseCryptLib/BaseCryptLib.inf
+  BaseCryptLib|CryptoPkg/Library/BaseCryptLibNull/BaseCryptLibNull.inf
 
   #
   # Supports DFCI Groups.
