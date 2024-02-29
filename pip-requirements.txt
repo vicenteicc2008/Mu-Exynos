@@ -12,9 +12,14 @@
 # https://www.python.org/dev/peps/pep-0440/#version-specifiers
 ##
 
+dependabot/pip/edk2-pytool-library-approx-eq-0.21.3
+edk2-pytool-library~=0.21.3 # MU_CHANGE
+edk2-pytool-extensions~=0.27.0
+=======
 edk2-pytool-library~=0.20.0 # MU_CHANGE
 dependabot/pip/edk2-pytool-extensions-approx-eq-0.27.3
 edk2-pytool-extensions~=0.27.3
+main
 edk2-basetools==0.1.49 # MU_CHANGE
 =======
 edk2-pytool-extensions~=0.27.0
