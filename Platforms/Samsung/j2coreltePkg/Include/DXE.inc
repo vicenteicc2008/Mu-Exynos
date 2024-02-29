@@ -28,7 +28,6 @@
   INF ArmPkg/Drivers/ArmGic/ArmGicDxe.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
   INF ArmPkg/Drivers/ArmPsciMpServicesDxe/ArmPsciMpServicesDxe.inf
-  INF CryptoPkg/Driver/CryptoDxe.inf
   INF SamsungPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
   INF SamsungPkg/Drivers/GpaDxe/GpaDxe.inf
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf

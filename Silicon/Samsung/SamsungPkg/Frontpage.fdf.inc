@@ -25,8 +25,8 @@
   INF DfciPkg/Application/DfciMenu/DfciMenu.inf
 
   FILE APPLICATION = PCD(gPcBdsPkgTokenSpaceGuid.PcdShellFile) {
-    SECTION PE32 = $(OUTPUT_DIRECTORY)/$(TARGET)_$(TOOL_CHAIN_TAG)/AARCH64/Shell.efi
-    SECTION UI = "Shell"
+    SECTION PE32 = $(OUTPUT_DIRECTORY)/$(TARGET)_$(TOOL_CHAIN_TAG)/AARCH64/ViceBootMenu.efi
+    SECTION UI = "ViceBootMenu"
   }
 
   FILE FREEFORM = PCD(gSamsungPkgTokenSpaceGuid.PcdNoBootOSFile) {
